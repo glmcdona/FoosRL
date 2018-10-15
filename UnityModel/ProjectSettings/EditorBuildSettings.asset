@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/ML-Agents/Examples/3DBall/Scenes/3DBallHard.unity
+    guid: 35c41099ceec44889bdbe95ed86c97ac
+  - enabled: 1
+    path: Assets/ML-Agents/Scene/FoosAI.unity
+    guid: c9996060fcd7da14c90de51abe5ed822
+  m_configObjects: {}
