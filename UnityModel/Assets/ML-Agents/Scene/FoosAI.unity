@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &57215934
+--- !u!114 &31291739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -121,62 +121,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
-  keyContinuousPlayerActions: []
-  axisContinuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
+  brain: {fileID: 0}
+--- !u!114 &189119948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 0
   brain: {fileID: 1496665118}
---- !u!114 &117168758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
---- !u!114 &161519767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
---- !u!114 &456587020
+--- !u!114 &240813116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -185,96 +148,385 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  brain: {fileID: 2017978952}
---- !u!114 &545186223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  keyContinuousPlayerActions: []
-  axisContinuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 2017978952}
---- !u!114 &610075606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
---- !u!1 &724494123
+  brain: {fileID: 1226426905}
+--- !u!1 &407404198
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 724494124}
-  - component: {fileID: 724494125}
+  - component: {fileID: 407404200}
+  - component: {fileID: 407404199}
   m_Layer: 0
-  m_Name: BrainPlayer
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &724494124
+  m_IsActive: 1
+--- !u!108 &407404199
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407404198}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &407404200
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724494123}
-  m_LocalRotation: {x: 0.069583125, y: -0.0049145464, z: -0.0702813, w: 0.99508524}
-  m_LocalPosition: {x: 13.05643, y: -226.04976, z: -4.350162}
-  m_LocalScale: {x: 0.2948284, y: 4.8140388, z: 0.2911352}
+  m_GameObject: {fileID: 407404198}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -13.662244, y: -7.923027, z: -1.4719962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1275760103}
+  m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &454520893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1879915391}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 454520894}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454520894
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1879915391}
+  m_GameObject: {fileID: 454520893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &724494125
+--- !u!1 &541281023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 541281028}
+  - component: {fileID: 541281027}
+  - component: {fileID: 541281026}
+  - component: {fileID: 541281025}
+  - component: {fileID: 541281024}
+  m_Layer: 0
+  m_Name: Table (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &541281024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724494123}
+  m_GameObject: {fileID: 541281023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676a8ddf5a5f4f64b35e9ed5028679d, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brainParameters:
-    vectorObservationSize: 1
-    numStackedVectorObservations: 1
-    vectorActionSize: 1
-    cameraResolutions: []
-    vectorActionDescriptions:
-    - 
-    vectorActionSpaceType: 0
-    vectorObservationSpaceType: 1
-  brainType: 0
-  CoreBrains:
-  - {fileID: 1995331891}
-  - {fileID: 1569479455}
-  - {fileID: 1259328087}
-  - {fileID: 117168758}
-  instanceID: 14402
---- !u!114 &728868378
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &541281025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541281023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &541281026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541281023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 541281025}
+  player2_manager: {fileID: 541281024}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 541281025}
+  - {fileID: 541281024}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &541281027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541281023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &541281028
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541281023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.31, z: -46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &590169724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 590169729}
+  - component: {fileID: 590169728}
+  - component: {fileID: 590169727}
+  - component: {fileID: 590169726}
+  - component: {fileID: 590169725}
+  m_Layer: 0
+  m_Name: Table (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &590169725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590169724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &590169726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590169724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &590169727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590169724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 590169726}
+  player2_manager: {fileID: 590169725}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 590169726}
+  - {fileID: 590169725}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &590169728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590169724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &590169729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590169724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.31, z: -31.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &602592608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -283,7 +535,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
   keyContinuousPlayerActions: []
@@ -291,66 +543,430 @@ MonoBehaviour:
   discretePlayerActions: []
   defaultAction: 0
   brain: {fileID: 1226426905}
---- !u!114 &773723634
+--- !u!1 &614758570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 614758575}
+  - component: {fileID: 614758574}
+  - component: {fileID: 614758573}
+  - component: {fileID: 614758572}
+  - component: {fileID: 614758571}
+  m_Layer: 0
+  m_Name: Table (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &614758571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 614758570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
---- !u!114 &893902980
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &614758572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 614758570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
---- !u!114 &1099368870
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &614758573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 614758570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
---- !u!114 &1116422914
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 614758572}
+  player2_manager: {fileID: 614758571}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 614758572}
+  - {fileID: 614758571}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &614758574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614758570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &614758575
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614758570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 12.31, z: -46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &656742297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 656742302}
+  - component: {fileID: 656742301}
+  - component: {fileID: 656742300}
+  - component: {fileID: 656742299}
+  - component: {fileID: 656742298}
+  m_Layer: 0
+  m_Name: Table (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &656742298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656742297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &656742299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656742297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &656742300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656742297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 656742299}
+  player2_manager: {fileID: 656742298}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 656742299}
+  - {fileID: 656742298}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &656742301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656742297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &656742302
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656742297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 0, z: -31.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &868615550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 868615555}
+  - component: {fileID: 868615554}
+  - component: {fileID: 868615553}
+  - component: {fileID: 868615552}
+  - component: {fileID: 868615551}
+  m_Layer: 0
+  m_Name: Table (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &868615551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868615550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &868615552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868615550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &868615553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868615550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 868615552}
+  player2_manager: {fileID: 868615551}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 868615552}
+  - {fileID: 868615551}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &868615554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868615550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &868615555
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868615550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 12.31, z: -31.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919637634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -359,88 +975,319 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
   keyContinuousPlayerActions: []
   axisContinuousPlayerActions: []
   discretePlayerActions: []
   defaultAction: 0
-  brain: {fileID: 1171205488}
---- !u!1 &1171205485
+  brain: {fileID: 1496665118}
+--- !u!1 &956301180
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1518777817328868, guid: 00a1ebe742cf2394d8c21484e3a02412,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1171205486}
-  - component: {fileID: 1171205488}
-  - component: {fileID: 1171205487}
+  - component: {fileID: 956301185}
+  - component: {fileID: 956301184}
+  - component: {fileID: 956301183}
+  - component: {fileID: 956301182}
+  - component: {fileID: 956301181}
   m_Layer: 0
-  m_Name: Ball3DBrain
+  m_Name: Table (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1171205486
+  m_IsActive: 1
+--- !u!114 &956301181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956301180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &956301182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956301180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &956301183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956301180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 956301182}
+  player2_manager: {fileID: 956301181}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 956301182}
+  - {fileID: 956301181}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &956301184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956301180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &956301185
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4244963715435272, guid: 00a1ebe742cf2394d8c21484e3a02412,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1171205485}
-  m_LocalRotation: {x: -0, y: -0, z: 0.00000000273576, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 956301180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 0, z: -10.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1275760103}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1171205487
+--- !u!1 &1004694747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1004694752}
+  - component: {fileID: 1004694751}
+  - component: {fileID: 1004694750}
+  - component: {fileID: 1004694749}
+  - component: {fileID: 1004694748}
+  m_Layer: 0
+  m_Name: Table (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1004694748
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114933696884682882, guid: 00a1ebe742cf2394d8c21484e3a02412,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1171205485}
+  m_GameObject: {fileID: 1004694747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccaa8f43c15264209b137d8dc26a8d63, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
---- !u!114 &1171205488
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1004694749
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114938382745838118, guid: 00a1ebe742cf2394d8c21484e3a02412,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1171205485}
+  m_GameObject: {fileID: 1004694747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676a8ddf5a5f4f64b35e9ed5028679d, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brainParameters:
-    vectorObservationSize: 8
-    numStackedVectorObservations: 1
-    vectorActionSize: 2
-    cameraResolutions: []
-    vectorActionDescriptions:
-    - 
-    - 
-    vectorActionSpaceType: 1
-    vectorObservationSpaceType: 1
-  brainType: 0
-  CoreBrains:
-  - {fileID: 1116422914}
-  - {fileID: 1099368870}
-  - {fileID: 1351599568}
-  - {fileID: 2145178690}
-  instanceID: 14418
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1004694750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004694747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1004694749}
+  player2_manager: {fileID: 1004694748}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1004694749}
+  - {fileID: 1004694748}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1004694751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004694747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1004694752
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004694747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204717399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!1 &1226426903
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +1303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1226426904
 Transform:
   m_ObjectHideFlags: 0
@@ -502,11 +1349,11 @@ MonoBehaviour:
     vectorObservationSpaceType: 1
   brainType: 2
   CoreBrains:
-  - {fileID: 728868378}
-  - {fileID: 1619944782}
-  - {fileID: 1471746773}
-  - {fileID: 161519767}
-  instanceID: 15504
+  - {fileID: 602592608}
+  - {fileID: 31291739}
+  - {fileID: 240813116}
+  - {fileID: 1420428037}
+  instanceID: 11662
 --- !u!1 &1255351183
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,20 +1433,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 38, y: 93, z: 0}
---- !u!114 &1259328087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1 &1275760101
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,11 +1465,8 @@ Transform:
   m_Children:
   - {fileID: 1226426904}
   - {fileID: 1496665117}
-  - {fileID: 2017978951}
-  - {fileID: 724494124}
-  - {fileID: 1171205486}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1275760104
 MonoBehaviour:
@@ -662,7 +1494,289 @@ MonoBehaviour:
     targetFrameRate: 30
   resetParameters:
     resetParameters: []
---- !u!114 &1319247034
+--- !u!1 &1308749886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1308749891}
+  - component: {fileID: 1308749890}
+  - component: {fileID: 1308749889}
+  - component: {fileID: 1308749888}
+  - component: {fileID: 1308749887}
+  m_Layer: 0
+  m_Name: Table (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1308749887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308749886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1308749888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308749886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1308749889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308749886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1308749888}
+  player2_manager: {fileID: 1308749887}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1308749888}
+  - {fileID: 1308749887}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1308749890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308749886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1308749891
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308749886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 12.31, z: -10.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1338392830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1338392835}
+  - component: {fileID: 1338392834}
+  - component: {fileID: 1338392833}
+  - component: {fileID: 1338392832}
+  - component: {fileID: 1338392831}
+  m_Layer: 0
+  m_Name: Table (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1338392831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338392830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1338392832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338392830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1338392833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338392830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1338392832}
+  player2_manager: {fileID: 1338392831}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1338392832}
+  - {fileID: 1338392831}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1338392834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338392830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1338392835
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338392830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.31, z: -10.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420428037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -670,34 +1784,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
   brain: {fileID: 0}
---- !u!114 &1351599568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
---- !u!114 &1471746773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 1226426905}
 --- !u!1 &1496665116
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,10 +1844,7 @@ MonoBehaviour:
     vectorObservationSize: 0
     numStackedVectorObservations: 1
     vectorActionSize: 8
-    cameraResolutions:
-    - width: 512
-      height: 512
-      blackAndWhite: 0
+    cameraResolutions: []
     vectorActionDescriptions:
     - Rod 1 linear
     - Rod 2 linear
@@ -760,11 +1858,11 @@ MonoBehaviour:
     vectorObservationSpaceType: 1
   brainType: 1
   CoreBrains:
-  - {fileID: 57215934}
-  - {fileID: 1890120977}
-  - {fileID: 1319247034}
-  - {fileID: 893902980}
-  instanceID: 15536
+  - {fileID: 919637634}
+  - {fileID: 189119948}
+  - {fileID: 1712727720}
+  - {fileID: 1204717399}
+  instanceID: 11692
 --- !u!114 &1496665119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,10 +1871,292 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496665116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99399d2439f894b149d8e67b85b6e07a, type: 3}
+  m_Script: {fileID: 11500000, guid: 93664f69312dc2b4ca11265e1dcf4e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1569479455
+--- !u!1 &1597237874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1597237879}
+  - component: {fileID: 1597237878}
+  - component: {fileID: 1597237877}
+  - component: {fileID: 1597237876}
+  - component: {fileID: 1597237875}
+  m_Layer: 0
+  m_Name: Table (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1597237875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597237874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1597237876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597237874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1597237877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597237874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1597237876}
+  player2_manager: {fileID: 1597237875}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1597237876}
+  - {fileID: 1597237875}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1597237878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597237874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1597237879
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597237874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 12.31, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1641197123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1641197128}
+  - component: {fileID: 1641197127}
+  - component: {fileID: 1641197126}
+  - component: {fileID: 1641197125}
+  - component: {fileID: 1641197124}
+  m_Layer: 0
+  m_Name: Table (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1641197124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641197123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1641197125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641197123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1641197126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641197123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1641197125}
+  player2_manager: {fileID: 1641197124}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1641197125}
+  - {fileID: 1641197124}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1641197127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641197123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1641197128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641197123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1712727720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -784,23 +2164,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
---- !u!114 &1619944782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
   brain: {fileID: 0}
 --- !u!1 &1787314694
 GameObject:
@@ -863,11 +2229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials_exterior:
-  - {fileID: 2100000, guid: 45735b9be79ab49b887c5f09cbb914b9, type: 2}
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
   materials_play_surface:
   - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
   materials_inside_wall:
-  - {fileID: 2100000, guid: 93a457da2f20a4fbcaf3de26743bcd08, type: 2}
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
   materials_ball:
   - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
   materials_rod:
@@ -875,13 +2241,13 @@ MonoBehaviour:
   materials_bumper:
   - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
   materials_player1:
-  - {fileID: 2100000, guid: 016dd1ddafb8e431f9fff114f8da24ed, type: 2}
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
   materials_player2:
-  - {fileID: 2100000, guid: 8d8e8962a89d44eb28cf1b21b88014ec, type: 2}
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
   materials_handle1:
-  - {fileID: 2100000, guid: 016dd1ddafb8e431f9fff114f8da24ed, type: 2}
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
   materials_handle2:
-  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
 --- !u!4 &1787314697
 Transform:
   m_ObjectHideFlags: 0
@@ -893,7 +2259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1787314698
 MonoBehaviour:
@@ -930,7 +2296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 1226426905}
+  brain: {fileID: 1496665118}
   agentParameters:
     agentCameras: []
     maxStep: 50000
@@ -943,6 +2309,288 @@ MonoBehaviour:
   torque_factor: 5000
   force_factor: 30000
   mode: 0
+--- !u!1 &1794443531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1794443536}
+  - component: {fileID: 1794443535}
+  - component: {fileID: 1794443534}
+  - component: {fileID: 1794443533}
+  - component: {fileID: 1794443532}
+  m_Layer: 0
+  m_Name: Table (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1794443532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794443531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1794443533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794443531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1794443534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794443531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1794443533}
+  player2_manager: {fileID: 1794443532}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1794443533}
+  - {fileID: 1794443532}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1794443535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794443531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1794443536
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794443531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.86, y: 0, z: -46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1858397247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1858397252}
+  - component: {fileID: 1858397251}
+  - component: {fileID: 1858397250}
+  - component: {fileID: 1858397249}
+  - component: {fileID: 1858397248}
+  m_Layer: 0
+  m_Name: Table (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1858397248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858397247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1858397249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858397247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1858397250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858397247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1858397249}
+  player2_manager: {fileID: 1858397248}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1858397249}
+  - {fileID: 1858397248}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1858397251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858397247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1858397252
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858397247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -31.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1879915391
 Prefab:
   m_ObjectHideFlags: 0
@@ -985,112 +2633,285 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 240a87459b440fc43bbd3a9a520a8bd5, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1890120977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 0
-  brain: {fileID: 1496665118}
---- !u!114 &1995331891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  keyContinuousPlayerActions: []
-  axisContinuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 724494125}
---- !u!1 &2017978950
+--- !u!1 &1906267495
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 2017978951}
-  - component: {fileID: 2017978952}
+  - component: {fileID: 1906267500}
+  - component: {fileID: 1906267499}
+  - component: {fileID: 1906267498}
+  - component: {fileID: 1906267497}
+  - component: {fileID: 1906267496}
   m_Layer: 0
-  m_Name: BrainInference
+  m_Name: Table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2017978951
+  m_IsActive: 1
+--- !u!114 &1906267496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906267495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1906267497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906267495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &1906267498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906267495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 1906267497}
+  player2_manager: {fileID: 1906267496}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1906267497}
+  - {fileID: 1906267496}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &1906267499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906267495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1906267500
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2017978950}
-  m_LocalRotation: {x: 0.069583125, y: -0.0049145464, z: -0.0702813, w: 0.99508524}
-  m_LocalPosition: {x: 13.05643, y: -226.04976, z: -4.350162}
-  m_LocalScale: {x: 0.2948284, y: 4.8140388, z: 0.2911352}
+  m_GameObject: {fileID: 1906267495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1275760103}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2017978952
+--- !u!1 &2018667923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2018667928}
+  - component: {fileID: 2018667927}
+  - component: {fileID: 2018667926}
+  - component: {fileID: 2018667925}
+  - component: {fileID: 2018667924}
+  m_Layer: 0
+  m_Name: Table (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2018667924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2017978950}
+  m_GameObject: {fileID: 2018667923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676a8ddf5a5f4f64b35e9ed5028679d, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brainParameters:
-    vectorObservationSize: 1
-    numStackedVectorObservations: 1
-    vectorActionSize: 1
-    cameraResolutions: []
-    vectorActionDescriptions:
-    - 
-    vectorActionSpaceType: 0
-    vectorObservationSpaceType: 1
-  brainType: 2
-  CoreBrains:
-  - {fileID: 545186223}
-  - {fileID: 610075606}
-  - {fileID: 456587020}
-  - {fileID: 773723634}
-  instanceID: 14474
---- !u!114 &2145178690
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &2018667925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2018667923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 50000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  mode: 0
+--- !u!114 &2018667926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018667923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  player1_manager: {fileID: 2018667925}
+  player2_manager: {fileID: 2018667924}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 2018667925}
+  - {fileID: 2018667924}
+  player_rewards:
+  - 0
+  - 0
+  _player_rewards_fromscores:
+  - 0
+  - 0
+  _player_rewards_currentball:
+  - 0
+  - 0
+--- !u!114 &2018667927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018667923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &2018667928
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018667923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.31, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -392,7 +392,7 @@ public class CreateRandomTable : MonoBehaviour {
         go.GetComponent<Renderer>().material = material_ball;
         go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
         go.transform.position = new Vector3(0f, ball_diameter*2.0f, 0f);
-        go.transform.transform.parent = foosball_setup.transform;
+        go.transform.transform.parent = table.transform;
         this.GetComponent<TableManager>().ball = go;
 
         // Place the ball drop source
@@ -402,7 +402,7 @@ public class CreateRandomTable : MonoBehaviour {
         go.GetComponent<MeshRenderer>().enabled = false;  // No need to render this
         go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
         go.transform.position = new Vector3(0f, ball_diameter * 3.0f, 0f);
-        go.transform.transform.parent = foosball_setup.transform;
+        go.transform.transform.parent = table.transform;
         this.GetComponent<TableManager>().ball_drop_source = go;
 
         // Place the two agent cameras
@@ -411,7 +411,7 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
                                 new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
                                 table_outer_length * 0.1f * Random.insideUnitSphere;
-        go.transform.transform.parent = foosball_setup.transform;
+        go.transform.transform.parent = table.transform;
         // Point the camera at approximately the center of the table
         go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
         go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
@@ -422,7 +422,7 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
                                 new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
                                 table_outer_length * 0.1f * Random.insideUnitSphere;
-        go.transform.transform.parent = foosball_setup.transform;
+        go.transform.transform.parent = table.transform;
         // Point the camera at approximately the center of the table
         go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
         go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
@@ -503,7 +503,7 @@ public class CreateRandomTable : MonoBehaviour {
             // Rod base object
             GameObject rod = new GameObject{name = rod_info.rod_name};
             rod.tag = "Rod";
-            rod.transform.transform.parent = foosball_setup.transform;
+            rod.transform.transform.parent = table.transform;
             rod.layer = (int)PHYSICS_LAYERS.Rods;
             int rod_number = 0;
             if (rod_info.player == 0)
@@ -669,6 +669,8 @@ public class CreateRandomTable : MonoBehaviour {
 
 
         }
+
+        table.transform.position = gameObject.transform.position;
     }
 
     GameObject BuildPlayerGameObject(Material material, PhysicMaterial material_foot_physics)
