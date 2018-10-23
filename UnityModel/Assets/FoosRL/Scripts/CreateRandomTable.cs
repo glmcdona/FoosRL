@@ -280,6 +280,7 @@ public class CreateRandomTable : MonoBehaviour {
         gt.player = 0;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
+        this.GetComponent<TableManager>().goal1 = go;
 
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Detector_Goal_Player2";
@@ -292,6 +293,7 @@ public class CreateRandomTable : MonoBehaviour {
         gt.player = 1;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
+        this.GetComponent<TableManager>().goal2 = go;
 
 
         // Add the end two sides of the table

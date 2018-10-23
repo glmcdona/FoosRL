@@ -8,6 +8,8 @@ public class TableManager : MonoBehaviour {
     
     public GameObject ball;
     public GameObject ball_drop_source;
+    public GameObject goal1;
+    public GameObject goal2;
 
     public PlayerAgent player1_manager;
     public PlayerAgent player2_manager;
@@ -102,6 +104,7 @@ public class TableManager : MonoBehaviour {
             };
             */
 
+            /*
             // Simpler reward structure, send ball towards opponents net!
             float[] rewards = new float[]
             {
@@ -110,10 +113,24 @@ public class TableManager : MonoBehaviour {
                 0.00f, // At 5-bar (25% from here)
                 0.10f, // At 3-bar offense (40% chance of scoring from here)
             };
+            */
 
-            float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
-            _player_rewards_currentball[0] = reward;
-            _player_rewards_currentball[1] = -reward;
+            //float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
+            //_player_rewards_currentball[0] = reward;
+            //_player_rewards_currentball[1] = -reward;
+
+            // Even simpler reward! Reward is distance to goal.
+            float proximal_reward = 0.3f;
+            float denominator = 2.0f * Vector3.Distance(ball_drop_source.transform.position , goal1.transform.position);
+            float distance_goal1 = Vector3.Distance(ball.transform.position, goal1.transform.position);
+            float distance_goal2 = Vector3.Distance(ball.transform.position, goal2.transform.position);
+            _player_rewards_currentball[0] = proximal_reward - proximal_reward * distance_goal2 / denominator;
+            _player_rewards_currentball[1] = proximal_reward - proximal_reward * distance_goal1 / denominator;
+
+
+            //float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
+            //_player_rewards_currentball[0] = reward;
+            //_player_rewards_currentball[1] = -reward;
         }
 
         // Update total reward
