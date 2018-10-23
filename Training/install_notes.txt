@@ -1,0 +1,2 @@
+CUDA 9.0
+cuDNN v7.0.5 (Dec 5, 2017), for CUDA 9.0 
