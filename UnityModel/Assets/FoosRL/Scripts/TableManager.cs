@@ -92,12 +92,23 @@ public class TableManager : MonoBehaviour {
         else
         {
             // Give a reward depending on who has the ball
+            /*
             float[] rewards = new float[]
             {
                 0.10f, // At goalie (10% from here)
                 0.10f, // At defence (10% from here)
                 0.25f, // At 5-bar (25% from here)
                 0.40f, // At 3-bar offense (40% chance of scoring from here)
+            };
+            */
+
+            // Simpler reward structure, send ball towards opponents net!
+            float[] rewards = new float[]
+            {
+                -0.10f, // At goalie (10% from here)
+                -0.10f, // At defence (10% from here)
+                0.00f, // At 5-bar (25% from here)
+                0.10f, // At 3-bar offense (40% chance of scoring from here)
             };
 
             float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
