@@ -21,19 +21,21 @@ default:
     curiosity_strength: 0.01
     curiosity_enc_size: 128
 
+
+
 BrainTraining:
     use_recurrent: true
     sequence_length: 32
-    num_layers: 1
+    num_layers: 3
     hidden_units: 128
-    memory_size: 256
-    beta: 1.0e-2
-    gamma: 0.99
-    num_epoch: 3
-    buffer_size: 128
-    batch_size: 2
+    memory_size: 512
+    beta: 1.0e-4
+    gamma: 0.90
+    num_epoch: 4
+    buffer_size: 4096
+    batch_size: 512
     max_steps: 5.0e5
-    summary_freq: 1000
+    summary_freq: 50
     time_horizon: 64
 
 BananaBrain:

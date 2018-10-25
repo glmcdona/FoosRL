@@ -31,6 +31,8 @@ public enum PHYSICS_LAYERS
 
 
 public class CreateRandomTable : MonoBehaviour {
+    public bool AllowSpinning = true;
+
     public List<Material> materials_exterior;
     public List<Material> materials_play_surface;
     public List<Material> materials_inside_wall;
@@ -41,6 +43,8 @@ public class CreateRandomTable : MonoBehaviour {
     public List<Material> materials_player2;
     public List<Material> materials_handle1;
     public List<Material> materials_handle2;
+
+    
 
     // Use this for initialization
     void Awake () {
@@ -241,7 +245,21 @@ public class CreateRandomTable : MonoBehaviour {
         List<int> triangles = GetTrianglesFromSquares(vertices);
         List<Vector3> normals = GetNormalsFromSquares(vertices);
 
+
         go = new GameObject("goal1", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider));
+        m = new Mesh();
+        go.layer = (int)PHYSICS_LAYERS.Table;
+        go.GetComponent<MeshCollider>().sharedMesh = m;
+        go.GetComponent<MeshCollider>().material = material_wall_physics;
+        go.GetComponent<MeshFilter>().mesh = m;
+        m.vertices = vertices.ToArray();
+        m.triangles = triangles.ToArray();
+        go.GetComponent<Renderer>().material = material_inside_wall;
+        go.transform.position = new Vector3(-table_inner_length / 2.0f, 0f, 0f);
+        go.transform.transform.parent = table.transform;
+
+
+        go = new GameObject("goal2", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider));
         m = new Mesh();
         go.layer = (int)PHYSICS_LAYERS.Table;
         go.GetComponent<MeshCollider>().sharedMesh = m;
@@ -255,17 +273,6 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.transform.parent = table.transform;
 
 
-        go = new GameObject("goal2", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider));
-        m = new Mesh();
-        go.layer = (int)PHYSICS_LAYERS.Table;
-        go.GetComponent<MeshCollider>().sharedMesh = m;
-        go.GetComponent<MeshCollider>().material = material_wall_physics;
-        go.GetComponent<MeshFilter>().mesh = m;
-        m.vertices = vertices.ToArray();
-        m.triangles = triangles.ToArray();
-        go.GetComponent<Renderer>().material = material_inside_wall;
-        go.transform.position = new Vector3(-table_inner_length / 2.0f, 0f, 0f);
-        go.transform.transform.parent = table.transform;
 
         // Build the goal detectors boxes
         // Note: We don't want to detect balls that hit the corner, so we start the detection box 1/2 ball width into the goal.
@@ -274,26 +281,26 @@ public class CreateRandomTable : MonoBehaviour {
         go.layer = (int)PHYSICS_LAYERS.BallDetector;
         go.GetComponent<BoxCollider>().isTrigger = true; // Now it will only detect the ball
         go.GetComponent<MeshRenderer>().enabled = false;  // No need to render this
-        go.transform.localScale = new Vector3((table_outer_length-table_inner_length)/2.0f - ball_diameter/2.0f, table_inner_wall_height, table_inner_width);
-        go.transform.position = new Vector3(((table_inner_length+table_outer_length)/4.0f + ball_diameter/4.0f), table_inner_wall_height/2.0f, 0.0f);
+        go.transform.localScale = new Vector3((table_outer_length - table_inner_length) / 2.0f - ball_diameter / 2.0f, table_inner_wall_height, table_inner_width);
+        go.transform.position = new Vector3(-((table_inner_length + table_outer_length) / 4.0f + ball_diameter / 4.0f), table_inner_wall_height / 2.0f, 0.0f);
         GoalTracking gt = go.AddComponent<GoalTracking>();
         gt.player = 0;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().goal1 = go;
-
+        this.GetComponent<TableManager>().goals[0] = go;
+        
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Detector_Goal_Player2";
         go.layer = (int)PHYSICS_LAYERS.BallDetector;
         go.GetComponent<BoxCollider>().isTrigger = true; // Now it will only detect the ball
         go.GetComponent<MeshRenderer>().enabled = false;  // No need to render this
         go.transform.localScale = new Vector3((table_outer_length - table_inner_length) / 2.0f - ball_diameter / 2.0f, table_inner_wall_height, table_inner_width);
-        go.transform.position = new Vector3(-((table_inner_length + table_outer_length) / 4.0f + ball_diameter / 4.0f), table_inner_wall_height / 2.0f, 0.0f);
+        go.transform.position = new Vector3(((table_inner_length + table_outer_length) / 4.0f + ball_diameter / 4.0f), table_inner_wall_height / 2.0f, 0.0f);
         gt = go.AddComponent<GoalTracking>();
         gt.player = 1;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().goal2 = go;
+        this.GetComponent<TableManager>().goals[1] = go;
 
 
         // Add the end two sides of the table
@@ -464,8 +471,8 @@ public class CreateRandomTable : MonoBehaviour {
         float player_toes_to_toes = (table_inner_length - player_goalie_toes_to_wall * 2.0f - player_rod_to_toes * 16.0f) / 7.0f;
         float rod_spacing = 2.0f * player_rod_to_toes + player_toes_to_toes;
 
-        PlayerAgent player1_manager = this.GetComponent<TableManager>().player1_manager;
-        PlayerAgent player2_manager = this.GetComponent<TableManager>().player2_manager;
+        PlayerAgent player1_manager = this.GetComponent<TableManager>().agents[0];
+        PlayerAgent player2_manager = this.GetComponent<TableManager>().agents[1];
 
         for ( int i = 0; i < rods_info.Count; i++ )
         {
@@ -642,8 +649,20 @@ public class CreateRandomTable : MonoBehaviour {
             cj.zMotion = ConfigurableJointMotion.Limited;
             cj.angularXMotion = ConfigurableJointMotion.Locked;
             cj.angularYMotion = ConfigurableJointMotion.Locked;
-            cj.angularZMotion = ConfigurableJointMotion.Free;
-            
+            if (AllowSpinning)
+            {
+                cj.angularZMotion = ConfigurableJointMotion.Free;
+            }
+            else
+            {
+                // Restrict the rod angle
+                cj.angularZMotion = ConfigurableJointMotion.Limited;
+                cj.angularZLimit = new SoftJointLimit
+                {
+                    limit = Random.Range(160f, 179f)
+                };
+            }
+
             cj.linearLimit = new SoftJointLimit
             {
                 limit = rod_travel / 2.0f

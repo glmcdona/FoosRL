@@ -14,7 +14,6 @@ public class HeuristicDecision : MonoBehaviour, Decision
         bool done,
         List<float> memory)
     {
-        Debug.Log("Test!");
         // Take the actions. Action format is continuous:
         // 0-3: Linear rods 0 to 3
         // 4-7: Torque rods 0 to 3

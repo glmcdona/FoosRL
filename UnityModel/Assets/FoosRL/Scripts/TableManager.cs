@@ -8,11 +8,9 @@ public class TableManager : MonoBehaviour {
     
     public GameObject ball;
     public GameObject ball_drop_source;
-    public GameObject goal1;
-    public GameObject goal2;
 
-    public PlayerAgent player1_manager;
-    public PlayerAgent player2_manager;
+    public GameObject[] goals = new GameObject[] {null, null};
+    public PlayerAgent[] player_agents = new PlayerAgent[] { null, null };
 
     public int LastPlayerWithBall = -1;
     public int LastRodWithBall = -1;
@@ -20,19 +18,7 @@ public class TableManager : MonoBehaviour {
 
     // Agents
     public PlayerAgent[] agents;
-
-    // Total player reward
-    public float[] player_rewards = new float[] { 0.0f, 0.0f };
-
-    // Total reward from scores made
-    public float[] _player_rewards_fromscores = new float[] { 0.0f, 0.0f };
-
-    // Delta reward based on current ball state
-    public float[] _player_rewards_currentball = new float[] { 0.0f, 0.0f };
-
     
-
-
     private bool[,] _player_rod_hasball = new bool[2, 4] { { false, false, false, false }, { false, false, false, false } };
 
     // Use this for initialization
@@ -62,8 +48,8 @@ public class TableManager : MonoBehaviour {
         else
         {
             // Small penalty
-            _player_rewards_fromscores[LastPlayerWithBall] -= 0.05f;
-            _player_rewards_fromscores[Mathf.Abs(LastPlayerWithBall - 1)] += 0.05f;
+            player_agents[LastPlayerWithBall].PenaltyTimeExceeded();
+            // note: no reward for opponent, only the penalty
 
             // Give ball to opponent at the 5-bar
             ResetGame(Mathf.Abs(LastPlayerWithBall - 1));
@@ -75,67 +61,12 @@ public class TableManager : MonoBehaviour {
     {
         Debug.Log("Goal!");
 
-        // Count the rewards
-        _player_rewards_fromscores[player] += 1.0f;
-        _player_rewards_fromscores[Mathf.Abs(player - 1)] -= 1.0f;
+        // Count the goal rewards
+        player_agents[player].GoalAgainst();
+        player_agents[Mathf.Abs(player - 1)].Goal();
 
         // Reset, give the ball to the opponent
         ResetGame(Mathf.Abs(player - 1));
-    }
-
-    private void UpdateRewards()
-    {
-        // Update the reward from the current ball position
-        if( LastPlayerWithBall == -1 )
-        {
-            _player_rewards_currentball[0] = 0.0f;
-            _player_rewards_currentball[1] = 0.0f;
-        }
-        else
-        {
-            // Give a reward depending on who has the ball
-            /*
-            float[] rewards = new float[]
-            {
-                0.10f, // At goalie (10% from here)
-                0.10f, // At defence (10% from here)
-                0.25f, // At 5-bar (25% from here)
-                0.40f, // At 3-bar offense (40% chance of scoring from here)
-            };
-            */
-
-            /*
-            // Simpler reward structure, send ball towards opponents net!
-            float[] rewards = new float[]
-            {
-                -0.10f, // At goalie (10% from here)
-                -0.10f, // At defence (10% from here)
-                0.00f, // At 5-bar (25% from here)
-                0.10f, // At 3-bar offense (40% chance of scoring from here)
-            };
-            */
-
-            //float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
-            //_player_rewards_currentball[0] = reward;
-            //_player_rewards_currentball[1] = -reward;
-
-            // Even simpler reward! Reward is distance to goal.
-            float proximal_reward = 0.3f;
-            float denominator = 2.0f * Vector3.Distance(ball_drop_source.transform.position , goal1.transform.position);
-            float distance_goal1 = Vector3.Distance(ball.transform.position, goal1.transform.position);
-            float distance_goal2 = Vector3.Distance(ball.transform.position, goal2.transform.position);
-            _player_rewards_currentball[0] = proximal_reward - proximal_reward * distance_goal2 / denominator;
-            _player_rewards_currentball[1] = proximal_reward - proximal_reward * distance_goal1 / denominator;
-
-
-            //float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
-            //_player_rewards_currentball[0] = reward;
-            //_player_rewards_currentball[1] = -reward;
-        }
-
-        // Update total reward
-        player_rewards[0] = _player_rewards_currentball[0] + _player_rewards_fromscores[0];
-        player_rewards[1] = _player_rewards_currentball[1] + _player_rewards_fromscores[1];
     }
 
     // Callback for tracking which rods have the ball
@@ -147,29 +78,17 @@ public class TableManager : MonoBehaviour {
         LastPlayerWithBall = player;
         LastRodWithBall = rod_index;
         _player_rod_hasball[player, rod_index] = true;
-        UpdateRewards();
     }
 
     public void BallExitRod(int player, int rod_index)
     {
         _player_rod_hasball[player, rod_index] = false;
-        UpdateRewards();
     }
 
     // Ball exit play area
     public void BallExitPlay()
     {
         Debug.Log("Ball exited play.");
-        ResetGame();
-    }
-
-    public void Reset()
-    {
-        // Clear reward and reset ball
-        _player_rewards_currentball[0] = 0.0f;
-        _player_rewards_currentball[1] = 0.0f;
-        _player_rewards_fromscores[0] = 0.0f;
-        _player_rewards_fromscores[1] = 0.0f;
         ResetGame();
     }
 
@@ -195,7 +114,5 @@ public class TableManager : MonoBehaviour {
 
         // Reset time held counter
         TimeHeldByPlayer = 0.0f;
-
-        UpdateRewards();
     }
 }

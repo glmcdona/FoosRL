@@ -113,7 +113,289 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &91320698
+--- !u!1 &30463177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 30463182}
+  - component: {fileID: 30463181}
+  - component: {fileID: 30463180}
+  - component: {fileID: 30463179}
+  - component: {fileID: 30463178}
+  m_Layer: 0
+  m_Name: Table (26)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &30463178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30463177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &30463179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30463177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &30463180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30463177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 30463179}
+  - {fileID: 30463178}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 30463179}
+  - {fileID: 30463178}
+--- !u!114 &30463181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30463177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &30463182
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30463177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 15.87, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &56062804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 56062809}
+  - component: {fileID: 56062808}
+  - component: {fileID: 56062807}
+  - component: {fileID: 56062806}
+  - component: {fileID: 56062805}
+  m_Layer: 0
+  m_Name: Table (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &56062805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56062804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &56062806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56062804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &56062807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56062804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 56062806}
+  - {fileID: 56062805}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 56062806}
+  - {fileID: 56062805}
+--- !u!114 &56062808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56062804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &56062809
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56062804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.87, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140423275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -122,26 +404,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
---- !u!114 &148086419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  keyContinuousPlayerActions: []
-  axisContinuousPlayerActions: []
-  discretePlayerActions: []
-  brain: {fileID: 0}
---- !u!114 &214873652
+  brain: {fileID: 1226426905}
+--- !u!114 &168324790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -150,10 +416,462 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 1496665118}
+--- !u!114 &245719156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
   brain: {fileID: 0}
+--- !u!114 &269072641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  keyContinuousPlayerActions: []
+  axisContinuousPlayerActions: []
+  discretePlayerActions: []
+  brain: {fileID: 0}
+--- !u!1 &346227876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 346227881}
+  - component: {fileID: 346227880}
+  - component: {fileID: 346227879}
+  - component: {fileID: 346227878}
+  - component: {fileID: 346227877}
+  m_Layer: 0
+  m_Name: Table (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &346227877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346227876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &346227878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346227876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &346227879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346227876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 346227878}
+  - {fileID: 346227877}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 346227878}
+  - {fileID: 346227877}
+--- !u!114 &346227880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346227876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &346227881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346227876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.87, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &383605305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 383605310}
+  - component: {fileID: 383605309}
+  - component: {fileID: 383605308}
+  - component: {fileID: 383605307}
+  - component: {fileID: 383605306}
+  m_Layer: 0
+  m_Name: Table (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &383605306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383605305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &383605307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383605305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &383605308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383605305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 383605307}
+  - {fileID: 383605306}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 383605307}
+  - {fileID: 383605306}
+--- !u!114 &383605309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383605305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &383605310
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383605305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &400853382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 400853387}
+  - component: {fileID: 400853386}
+  - component: {fileID: 400853385}
+  - component: {fileID: 400853384}
+  - component: {fileID: 400853383}
+  m_Layer: 0
+  m_Name: Table (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &400853383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400853382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &400853384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400853382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &400853385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400853382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 400853384}
+  - {fileID: 400853383}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 400853384}
+  - {fileID: 400853383}
+--- !u!114 &400853386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400853382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &400853387
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400853382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 15.87, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407404198
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +937,2557 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &586138360
+--- !u!1 &409035568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 409035573}
+  - component: {fileID: 409035572}
+  - component: {fileID: 409035571}
+  - component: {fileID: 409035570}
+  - component: {fileID: 409035569}
+  m_Layer: 0
+  m_Name: Table (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &409035569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409035568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &409035570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409035568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &409035571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409035568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 409035570}
+  - {fileID: 409035569}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 409035570}
+  - {fileID: 409035569}
+--- !u!114 &409035572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409035568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &409035573
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409035568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 0, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &448019741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 448019746}
+  - component: {fileID: 448019745}
+  - component: {fileID: 448019744}
+  - component: {fileID: 448019743}
+  - component: {fileID: 448019742}
+  m_Layer: 0
+  m_Name: Table (30)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &448019742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448019741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &448019743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448019741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &448019744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448019741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 448019743}
+  - {fileID: 448019742}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 448019743}
+  - {fileID: 448019742}
+--- !u!114 &448019745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448019741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &448019746
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448019741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 15.87, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &643209223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 643209228}
+  - component: {fileID: 643209227}
+  - component: {fileID: 643209226}
+  - component: {fileID: 643209225}
+  - component: {fileID: 643209224}
+  m_Layer: 0
+  m_Name: Table (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &643209224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 643209223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &643209225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 643209223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &643209226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 643209223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 643209225}
+  - {fileID: 643209224}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 643209225}
+  - {fileID: 643209224}
+--- !u!114 &643209227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 643209223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &643209228
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 643209223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 0, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &666371855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 666371860}
+  - component: {fileID: 666371859}
+  - component: {fileID: 666371858}
+  - component: {fileID: 666371857}
+  - component: {fileID: 666371856}
+  m_Layer: 0
+  m_Name: Table (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &666371856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666371855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &666371857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666371855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &666371858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666371855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 666371857}
+  - {fileID: 666371856}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 666371857}
+  - {fileID: 666371856}
+--- !u!114 &666371859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666371855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &666371860
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666371855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.87, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731615049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 731615054}
+  - component: {fileID: 731615053}
+  - component: {fileID: 731615052}
+  - component: {fileID: 731615051}
+  - component: {fileID: 731615050}
+  m_Layer: 0
+  m_Name: Table (29)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &731615050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731615049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &731615051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731615049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &731615052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731615049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 731615051}
+  - {fileID: 731615050}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 731615051}
+  - {fileID: 731615050}
+--- !u!114 &731615053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731615049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &731615054
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731615049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 15.87, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &742876302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 742876307}
+  - component: {fileID: 742876306}
+  - component: {fileID: 742876305}
+  - component: {fileID: 742876304}
+  - component: {fileID: 742876303}
+  m_Layer: 0
+  m_Name: Table (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742876303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742876302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &742876304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742876302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &742876305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742876302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 742876304}
+  - {fileID: 742876303}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 742876304}
+  - {fileID: 742876303}
+--- !u!114 &742876306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742876302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &742876307
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742876302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 15.87, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &776923699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 776923704}
+  - component: {fileID: 776923703}
+  - component: {fileID: 776923702}
+  - component: {fileID: 776923701}
+  - component: {fileID: 776923700}
+  m_Layer: 0
+  m_Name: Table (20)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &776923700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776923699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &776923701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776923699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &776923702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776923699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 776923701}
+  - {fileID: 776923700}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 776923701}
+  - {fileID: 776923700}
+--- !u!114 &776923703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776923699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &776923704
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776923699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &811176203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 811176208}
+  - component: {fileID: 811176207}
+  - component: {fileID: 811176206}
+  - component: {fileID: 811176205}
+  - component: {fileID: 811176204}
+  m_Layer: 0
+  m_Name: Table (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &811176204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811176203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &811176205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811176203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &811176206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811176203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 811176205}
+  - {fileID: 811176204}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 811176205}
+  - {fileID: 811176204}
+--- !u!114 &811176207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811176203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &811176208
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811176203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 15.87, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &859309055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 859309060}
+  - component: {fileID: 859309059}
+  - component: {fileID: 859309058}
+  - component: {fileID: 859309057}
+  - component: {fileID: 859309056}
+  m_Layer: 0
+  m_Name: Table (23)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &859309056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859309055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &859309057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859309055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &859309058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859309055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 859309057}
+  - {fileID: 859309056}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 859309057}
+  - {fileID: 859309056}
+--- !u!114 &859309059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859309055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &859309060
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859309055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 0, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &861733537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 861733542}
+  - component: {fileID: 861733541}
+  - component: {fileID: 861733540}
+  - component: {fileID: 861733539}
+  - component: {fileID: 861733538}
+  m_Layer: 0
+  m_Name: Table (24)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &861733538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861733537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &861733539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861733537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &861733540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861733537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 861733539}
+  - {fileID: 861733538}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 861733539}
+  - {fileID: 861733538}
+--- !u!114 &861733541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861733537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &861733542
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861733537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 15.87, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &885653453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 885653458}
+  - component: {fileID: 885653457}
+  - component: {fileID: 885653456}
+  - component: {fileID: 885653455}
+  - component: {fileID: 885653454}
+  m_Layer: 0
+  m_Name: Table (22)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &885653454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885653453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &885653455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885653453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &885653456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885653453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 885653455}
+  - {fileID: 885653454}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 885653455}
+  - {fileID: 885653454}
+--- !u!114 &885653457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885653453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &885653458
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885653453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 0, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &962564148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 962564153}
+  - component: {fileID: 962564152}
+  - component: {fileID: 962564151}
+  - component: {fileID: 962564150}
+  - component: {fileID: 962564149}
+  m_Layer: 0
+  m_Name: Table (28)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &962564149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962564148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &962564150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962564148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &962564151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962564148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 962564150}
+  - {fileID: 962564149}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 962564150}
+  - {fileID: 962564149}
+--- !u!114 &962564152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962564148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &962564153
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962564148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 15.87, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &976702023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 976702028}
+  - component: {fileID: 976702027}
+  - component: {fileID: 976702026}
+  - component: {fileID: 976702025}
+  - component: {fileID: 976702024}
+  m_Layer: 0
+  m_Name: Table (27)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &976702024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976702023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &976702025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976702023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &976702026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976702023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 976702025}
+  - {fileID: 976702024}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 976702025}
+  - {fileID: 976702024}
+--- !u!114 &976702027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976702023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &976702028
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976702023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 15.87, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1013848955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+--- !u!1 &1015401483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1015401488}
+  - component: {fileID: 1015401487}
+  - component: {fileID: 1015401486}
+  - component: {fileID: 1015401485}
+  - component: {fileID: 1015401484}
+  m_Layer: 0
+  m_Name: Table (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1015401484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015401483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1015401485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015401483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1015401486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015401483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1015401485}
+  - {fileID: 1015401484}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1015401485}
+  - {fileID: 1015401484}
+--- !u!114 &1015401487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015401483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1015401488
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015401483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1044823631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1044823636}
+  - component: {fileID: 1044823635}
+  - component: {fileID: 1044823634}
+  - component: {fileID: 1044823633}
+  - component: {fileID: 1044823632}
+  m_Layer: 0
+  m_Name: Table (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1044823632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044823631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1044823633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044823631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1044823634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044823631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1044823633}
+  - {fileID: 1044823632}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1044823633}
+  - {fileID: 1044823632}
+--- !u!114 &1044823635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044823631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1044823636
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044823631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 0, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1050824400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1050824405}
+  - component: {fileID: 1050824404}
+  - component: {fileID: 1050824403}
+  - component: {fileID: 1050824402}
+  - component: {fileID: 1050824401}
+  m_Layer: 0
+  m_Name: Table (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1050824401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050824400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1050824402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050824400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1050824403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050824400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1050824402}
+  - {fileID: 1050824401}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1050824402}
+  - {fileID: 1050824401}
+--- !u!114 &1050824404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050824400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1050824405
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050824400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 0, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1051832717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1051832722}
+  - component: {fileID: 1051832721}
+  - component: {fileID: 1051832720}
+  - component: {fileID: 1051832719}
+  - component: {fileID: 1051832718}
+  m_Layer: 0
+  m_Name: Table (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1051832718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051832717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1051832719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051832717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1051832720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051832717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1051832719}
+  - {fileID: 1051832718}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1051832719}
+  - {fileID: 1051832718}
+--- !u!114 &1051832721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051832717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1051832722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051832717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 15.87, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053718140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1053718145}
+  - component: {fileID: 1053718144}
+  - component: {fileID: 1053718143}
+  - component: {fileID: 1053718142}
+  - component: {fileID: 1053718141}
+  m_Layer: 0
+  m_Name: Table (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1053718141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053718140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1053718142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053718140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1053718143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053718140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1053718142}
+  - {fileID: 1053718141}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1053718142}
+  - {fileID: 1053718141}
+--- !u!114 &1053718144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053718140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1053718145
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053718140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -29.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1140493364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -228,7 +3496,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
   graphModel: {fileID: 0}
@@ -241,7 +3509,305 @@ MonoBehaviour:
   VisualObservationPlaceholderName: []
   ActionPlaceholderName: action
   PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
+--- !u!114 &1172637787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  keyContinuousPlayerActions: []
+  axisContinuousPlayerActions: []
+  discretePlayerActions: []
+  brain: {fileID: 0}
+--- !u!1 &1180998427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1180998432}
+  - component: {fileID: 1180998431}
+  - component: {fileID: 1180998430}
+  - component: {fileID: 1180998429}
+  - component: {fileID: 1180998428}
+  m_Layer: 0
+  m_Name: Table (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1180998428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180998427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1180998429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180998427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1180998430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180998427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1180998429}
+  - {fileID: 1180998428}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1180998429}
+  - {fileID: 1180998428}
+--- !u!114 &1180998431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180998427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1180998432
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180998427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1221966113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1221966118}
+  - component: {fileID: 1221966117}
+  - component: {fileID: 1221966116}
+  - component: {fileID: 1221966115}
+  - component: {fileID: 1221966114}
+  m_Layer: 0
+  m_Name: Table (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1221966114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221966113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1221966115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221966113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1221966116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221966113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1221966115}
+  - {fileID: 1221966114}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1221966115}
+  - {fileID: 1221966114}
+--- !u!114 &1221966117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221966113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1221966118
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221966113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.4, y: 0, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226426903
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,13 +3849,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 41
     numStackedVectorObservations: 1
     vectorActionSize: 08000000
-    cameraResolutions:
-    - width: 512
-      height: 512
-      blackAndWhite: 0
+    cameraResolutions: []
     vectorActionDescriptions:
     - 
     - 
@@ -302,11 +3865,11 @@ MonoBehaviour:
     vectorActionSpaceType: 1
   brainType: 2
   CoreBrains:
-  - {fileID: 148086419}
-  - {fileID: 214873652}
-  - {fileID: 2072745537}
-  - {fileID: 1917524922}
-  instanceID: 11732
+  - {fileID: 1172637787}
+  - {fileID: 245719156}
+  - {fileID: 140423275}
+  - {fileID: 1140493364}
+  instanceID: 22510
 --- !u!1 &1255351183
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +4026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1496665117
 Transform:
   m_ObjectHideFlags: 0
@@ -489,19 +4052,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 41
     numStackedVectorObservations: 1
-    vectorActionSize: 00000000
+    vectorActionSize: 08000000
     cameraResolutions: []
-    vectorActionDescriptions: []
+    vectorActionDescriptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
     vectorActionSpaceType: 1
   brainType: 1
   CoreBrains:
-  - {fileID: 1757689581}
-  - {fileID: 2088179958}
-  - {fileID: 91320698}
-  - {fileID: 586138360}
-  instanceID: 11754
+  - {fileID: 269072641}
+  - {fileID: 168324790}
+  - {fileID: 1013848955}
+  - {fileID: 1600958618}
+  instanceID: 27488
 --- !u!114 &1496665119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +4084,289 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93664f69312dc2b4ca11265e1dcf4e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1757689581
+--- !u!1 &1536498490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1536498495}
+  - component: {fileID: 1536498494}
+  - component: {fileID: 1536498493}
+  - component: {fileID: 1536498492}
+  - component: {fileID: 1536498491}
+  m_Layer: 0
+  m_Name: Table (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1536498491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536498490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1536498492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536498490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1536498493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536498490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1536498492}
+  - {fileID: 1536498491}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1536498492}
+  - {fileID: 1536498491}
+--- !u!114 &1536498494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536498490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1536498495
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536498490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.87, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561994238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1561994243}
+  - component: {fileID: 1561994242}
+  - component: {fileID: 1561994241}
+  - component: {fileID: 1561994240}
+  - component: {fileID: 1561994239}
+  m_Layer: 0
+  m_Name: Table (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1561994239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561994238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1561994240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561994238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1561994241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561994238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1561994240}
+  - {fileID: 1561994239}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1561994240}
+  - {fileID: 1561994239}
+--- !u!114 &1561994242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561994238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1561994243
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561994238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 0, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600958618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -521,14 +4374,303 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
-  keyContinuousPlayerActions: []
-  axisContinuousPlayerActions: []
-  discretePlayerActions: []
-  brain: {fileID: 0}
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 1496665118}
+--- !u!1 &1641830142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1641830147}
+  - component: {fileID: 1641830146}
+  - component: {fileID: 1641830145}
+  - component: {fileID: 1641830144}
+  - component: {fileID: 1641830143}
+  m_Layer: 0
+  m_Name: Table (31)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1641830143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641830142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1641830144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641830142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1641830145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641830142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1641830144}
+  - {fileID: 1641830143}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1641830144}
+  - {fileID: 1641830143}
+--- !u!114 &1641830146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641830142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1641830147
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641830142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 15.87, z: -14.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1734620229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1734620234}
+  - component: {fileID: 1734620233}
+  - component: {fileID: 1734620232}
+  - component: {fileID: 1734620231}
+  - component: {fileID: 1734620230}
+  m_Layer: 0
+  m_Name: Table (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1734620230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734620229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1734620231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734620229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1734620232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734620229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1734620231}
+  - {fileID: 1734620230}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1734620231}
+  - {fileID: 1734620230}
+--- !u!114 &1734620233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734620229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1734620234
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734620229}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1787314694
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,23 +4703,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
   ball_drop_source: {fileID: 0}
-  player1_manager: {fileID: 1787314699}
-  player2_manager: {fileID: 1787314698}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1787314699}
+  - {fileID: 1787314698}
   LastPlayerWithBall: -1
   LastRodWithBall: -1
   TimeHeldByPlayer: 0
   agents:
   - {fileID: 1787314699}
   - {fileID: 1787314698}
-  player_rewards:
-  - 0
-  - 0
-  _player_rewards_fromscores:
-  - 0
-  - 0
-  _player_rewards_currentball:
-  - 0
-  - 0
 --- !u!114 &1787314696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +4726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowSpinning: 0
   materials_exterior:
   - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
   materials_play_surface:
@@ -633,10 +4771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 1226426905}
+  brain: {fileID: 1496665118}
   agentParameters:
     agentCameras: []
-    maxStep: 0
+    maxStep: 5000
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 5
@@ -645,6 +4783,8 @@ MonoBehaviour:
   rods: []
   torque_factor: 5000
   force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
   mode: 0
 --- !u!114 &1787314699
 MonoBehaviour:
@@ -660,7 +4800,7 @@ MonoBehaviour:
   brain: {fileID: 1226426905}
   agentParameters:
     agentCameras: []
-    maxStep: 50000
+    maxStep: 5000
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 5
@@ -669,52 +4809,288 @@ MonoBehaviour:
   rods: []
   torque_factor: 5000
   force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
   mode: 0
---- !u!114 &1917524922
+--- !u!1 &1969075763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1969075768}
+  - component: {fileID: 1969075767}
+  - component: {fileID: 1969075766}
+  - component: {fileID: 1969075765}
+  - component: {fileID: 1969075764}
+  m_Layer: 0
+  m_Name: Table (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1969075764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1969075763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
---- !u!114 &2072745537
+  brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1969075765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1969075763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 1226426905}
---- !u!114 &2088179958
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1969075766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1969075763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  broadcast: 1
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1969075765}
+  - {fileID: 1969075764}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1969075765}
+  - {fileID: 1969075764}
+--- !u!114 &1969075767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969075763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1969075768
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969075763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.7, y: 0, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1992749693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1992749698}
+  - component: {fileID: 1992749697}
+  - component: {fileID: 1992749696}
+  - component: {fileID: 1992749695}
+  - component: {fileID: 1992749694}
+  m_Layer: 0
+  m_Name: Table (25)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1992749694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992749693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   brain: {fileID: 1496665118}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1992749695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992749693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 1226426905}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 0
+  ControlledByKeys: 0
+  rods: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &1992749696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992749693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 1992749695}
+  - {fileID: 1992749694}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 1992749695}
+  - {fileID: 1992749694}
+--- !u!114 &1992749697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992749693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!4 &1992749698
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992749693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.3, y: 15.87, z: 18.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
