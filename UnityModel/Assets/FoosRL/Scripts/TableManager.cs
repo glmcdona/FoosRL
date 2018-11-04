@@ -8,6 +8,7 @@ public class TableManager : MonoBehaviour {
     
     public GameObject ball;
     public GameObject ball_drop_source;
+    public Bounds play_area; // x: table_inner_length, y: table_inner_wall_height, z: table_inner_width
 
     public GameObject[] goals = new GameObject[] {null, null};
     public PlayerAgent[] player_agents = new PlayerAgent[] { null, null };

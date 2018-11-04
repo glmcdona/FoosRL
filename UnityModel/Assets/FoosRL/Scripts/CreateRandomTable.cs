@@ -216,7 +216,20 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.localScale = new Vector3(table_outer_length, ball_diameter, table_outer_width);
         go.transform.position = new Vector3(0.0f, 1.49f*ball_diameter + table_inner_wall_height, 0.0f);
         go.transform.transform.parent = table.transform;
-        
+
+
+        // Build the play area cube
+        go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        go.name = "Detector_PlayArea";
+        go.layer = (int)PHYSICS_LAYERS.BallDetector;
+        go.GetComponent<BoxCollider>().isTrigger = true; // Now it will only detect the ball. Solid for now to bounce ball back in play.
+        go.GetComponent<MeshRenderer>().enabled = false;  // No need to render this
+        go.transform.localScale = new Vector3(table_inner_length, table_inner_wall_height, table_inner_width);
+        go.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        go.transform.transform.parent = table.transform;
+        this.GetComponent<TableManager>().play_area = new Bounds(new Vector3(0.0f, 0.0f, 0.0f), new Vector3(table_inner_length, table_inner_wall_height, table_inner_width));
+
+
         // Add the two goal sides as a mesh
         // Base directions:
         //  x -> direction of play
@@ -432,9 +445,10 @@ public class CreateRandomTable : MonoBehaviour {
                                 new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
                                 table_outer_length * 0.1f * Random.insideUnitSphere;
         go.transform.transform.parent = table.transform;
+
         // Point the camera at approximately the center of the table
         go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-        go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
+        go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
         this.GetComponent<TableManager>().agents[1].SetCamera(go.GetComponent<Camera>());
 
 
@@ -610,6 +624,16 @@ public class CreateRandomTable : MonoBehaviour {
                                      + j * (rod_info.rod_player_spacing + player_width));
                 go.transform.position = new Vector3(0.0f, 0.0f, player_position);
                 go.transform.parent = rod.transform;
+
+                // Add the player objects to the player agent list
+                if (rod_info.player == 0)
+                {
+                    player1_manager.players.Add(go);
+                }
+                else
+                {
+                    player2_manager.players.Insert(0, go);
+                }
             }
 
             // Set up the rod joint physics
