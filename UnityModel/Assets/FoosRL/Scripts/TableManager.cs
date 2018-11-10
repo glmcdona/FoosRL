@@ -17,6 +17,8 @@ public class TableManager : MonoBehaviour {
     public int LastRodWithBall = -1;
     public float TimeHeldByPlayer = 0.0f;
 
+    public bool DropRandomLocation = true;
+
     // Agents
     public PlayerAgent[] agents;
     
@@ -96,23 +98,48 @@ public class TableManager : MonoBehaviour {
     // Reset
     public void ResetGame( int? give_to_player = null )
     {
-        if (give_to_player == null)
+        if (!DropRandomLocation)
         {
-            // Give the ball to a random player
-            give_to_player = UnityEngine.Random.value > 0.5f ? 1 : 0;
+            if (give_to_player == null)
+            {
+                // Give the ball to a random player
+                give_to_player = UnityEngine.Random.value > 0.5f ? 1 : 0;
+            }
+            Debug.Log("Giving to player " + give_to_player.ToString());
+
+            // Give the ball to the specified player
+            if (give_to_player == 0)
+                ball.transform.position = ball_drop_source.transform.position - gameObject.transform.right * 1.5f * ball.transform.localScale.x;
+            else
+                ball.transform.position = ball_drop_source.transform.position + gameObject.transform.right * 1.5f * ball.transform.localScale.x;
+
+            // Reset ball speed
+            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
-        Debug.Log("Giving to player " + give_to_player.ToString());
-
-        // Give the ball to the specified player
-        if (give_to_player == 0)
-            ball.transform.position = ball_drop_source.transform.position - gameObject.transform.right * 1.5f * ball.transform.localScale.x;
         else
-            ball.transform.position = ball_drop_source.transform.position + gameObject.transform.right * 1.5f * ball.transform.localScale.x;
-        
-        // Reset ball speed
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        {
+            // Drop the ball in a random position on the table
+            float delta = 0.4f;
+            ball.transform.position = new Vector3(
+                    UnityEngine.Random.Range(play_area.min.x + delta, play_area.max.x - delta),
+                    UnityEngine.Random.Range(play_area.min.y + delta, play_area.max.y - delta),
+                    UnityEngine.Random.Range(play_area.min.z + delta, play_area.max.z - delta)
+                );
 
+            // Assign random velocity
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(
+                    UnityEngine.Random.Range(-3f, 3f),
+                    UnityEngine.Random.Range(-3f, 3f),
+                    UnityEngine.Random.Range(-3f, 3f)
+                );
+            ball.GetComponent<Rigidbody>().angularVelocity = new Vector3(
+                    UnityEngine.Random.Range(-3f, 3f),
+                    UnityEngine.Random.Range(-3f, 3f),
+                    UnityEngine.Random.Range(-3f, 3f)
+                );
+        }
+        
         // Reset time held counter
         TimeHeldByPlayer = 0.0f;
     }

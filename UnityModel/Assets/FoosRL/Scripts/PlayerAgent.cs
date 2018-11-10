@@ -104,13 +104,14 @@ public class PlayerAgent : Agent
 
 
                 // Rod Angle
-                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), new Vector3(0.0f, 0.0f, 1.0f));
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
                 AddVectorObs( NormalizeAngle(angle) );
                 //if (player == 0 && rod == rods[0])
                 //    Debug.Log( NormalizeAngle(angle) );
                 
-                AddVectorObs( NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 50.0f ).z );
-                // TODO: Validate
+                AddVectorObs( NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f ).z );
+                //if (player == 0 && rod == rods[0])
+                //    Debug.Log(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
             }
 
             // Opponent player rods
@@ -121,8 +122,9 @@ public class PlayerAgent : Agent
                 AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f );
 
                 // Rod Angle
-                AddVectorObs(NormalizeAngle(rod.GetComponent<Rigidbody>().rotation.eulerAngles).z);
-                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 50.0f).z);
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                AddVectorObs(NormalizeAngle(angle));
+                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
             }
 
             // Ball position with respect to each current player physical rod players
@@ -133,7 +135,7 @@ public class PlayerAgent : Agent
                         RelPosition.x / play_area.size.x,
                         RelPosition.z / play_area.size.z
                     );
-                
+
                 // Add the player position to ball location vector
                 AddVectorObs( NormalizeLogistic(RelPosition2d * 10.0f ) ); // 10x resolution scaling so it gets detailed when the ball is close to each player on each axis
             }
@@ -198,14 +200,15 @@ public class PlayerAgent : Agent
                         - (proximal_reward - proximal_reward * distance_goal_mine / denominator);
 
         // Add the reward delta
-        AddReward(distance_goal_reward - last_distance_goal_reward);
-        total_reward += distance_goal_reward - last_distance_goal_reward;
+        //AddReward(distance_goal_reward - last_distance_goal_reward);
+        //total_reward += distance_goal_reward - last_distance_goal_reward;
 
         // Update last ball position reward
         last_distance_goal_reward = distance_goal_reward;
 
         // Tiny penalty for time passing
-        AddReward(-0.1f / agentParameters.maxStep);
+        AddReward(-0.5f / agentParameters.maxStep);
+        total_reward += -0.5f / agentParameters.maxStep;
     }
 
     public void Goal()
@@ -213,7 +216,31 @@ public class PlayerAgent : Agent
         // 1.0 for scoring
         AddReward(1.0f);
         total_reward += 1.0f;
+        last_distance_goal_reward = 0.0f;
         Done();
+    }
+
+    public void GoalAgainst()
+    {
+        // -1.0 for being scored against
+        AddReward(-1.0f);
+        total_reward += -1.0f;
+        last_distance_goal_reward = 0.0f;
+        Done();
+    }
+
+    public void PenaltyTimeExceeded()
+    {
+        // Penalty is current ball distance penalty against the player or minimum of -0.05
+        float penalty = 0.0f;
+        penalty = last_distance_goal_reward - 0.05f;
+        if (penalty > -0.05f) // Minimum 0.05 penalty for exceeding 10 seconds
+            penalty = -0.05f;
+
+
+        //AddReward(penalty);
+        //opponent.AddReward(-penalty);
+        //total_reward += penalty;
     }
 
     private float NormalizeWidth(float width)
@@ -314,26 +341,6 @@ public class PlayerAgent : Agent
             );
     }
 
-    public void GoalAgainst()
-    {
-        // -1.0 for being scored against
-        AddReward(-1.0f);
-        total_reward += -1.0f;
-        Done();
-    }
-
-    public void PenaltyTimeExceeded()
-    {
-        // Penalty is current ball distance penalty against the player or minimum of -0.05
-        float penalty = 0.0f;
-        penalty = last_distance_goal_reward - 0.05f;
-        if (penalty > -0.05f) // Minimum 0.05 penalty for exceeding 10 seconds
-            penalty = -0.05f;
-
-        
-        AddReward(penalty);
-        total_reward += penalty;
-    }
 
     public override void AgentReset()
     {

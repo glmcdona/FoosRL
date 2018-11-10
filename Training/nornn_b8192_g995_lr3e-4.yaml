@@ -25,17 +25,17 @@ default:
 
 BrainTraining:
     learning_rate: 3.0e-4
-    use_recurrent: true
+    use_recurrent: false
     sequence_length: 64
     num_layers: 2
     hidden_units: 128
     memory_size: 512
-    beta: 1.0e-2
+    beta: 1.0e-4
     gamma: 0.995
     lambd: 0.95
     num_epoch: 5
     buffer_size: 32768
-    batch_size: 512
+    batch_size: 8192
     max_steps: 5.0e7
     summary_freq: 20000
     time_horizon: 128

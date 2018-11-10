@@ -1,1 +1,0 @@
-mlagents-learn config\trainer_config.yaml --env=.\FoosRLBuild\FoosRLBuild.exe --run-id=0 --train

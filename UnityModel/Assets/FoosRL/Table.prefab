@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1200221670258868}
+  m_IsPrefabParent: 1
+--- !u!1 &1200221670258868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4531259809008928}
+  - component: {fileID: 114098551052187766}
+  - component: {fileID: 114886747253468020}
+  - component: {fileID: 114022499012664202}
+  - component: {fileID: 114548055585080040}
+  m_Layer: 0
+  m_Name: Table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4531259809008928
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200221670258868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114022499012664202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200221670258868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  player: 0
+  ControlledByKeys: 0
+  VisionOnly: 0
+  rods: []
+  players: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &114098551052187766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200221670258868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67932f5ae37ae74886dcd9d8a9fc108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowSpinning: 0
+  AddCameras: 0
+  materials_exterior:
+  - {fileID: 2100000, guid: 866f7a84824d141dbbe50dd1893207d9, type: 2}
+  materials_play_surface:
+  - {fileID: 2100000, guid: 80ffa2c5b96364e4b80fbb2e42b0af3d, type: 2}
+  materials_inside_wall:
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
+  materials_ball:
+  - {fileID: 2100000, guid: 97796528aca714d159b1093f49bca242, type: 2}
+  materials_rod:
+  - {fileID: 2100000, guid: c2ae3be6d52eba641b1ea5ff0d971b52, type: 2}
+  materials_bumper:
+  - {fileID: 2100000, guid: f79af4fbbccd341578da68fd5d3c7e0d, type: 2}
+  materials_player1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_player2:
+  - {fileID: 2100000, guid: c821891e97dfd02438f5ea88c45e910e, type: 2}
+  materials_handle1:
+  - {fileID: 2100000, guid: 334418dfcaf177b4a8077a7450b9f93f, type: 2}
+  materials_handle2:
+  - {fileID: 2100000, guid: 08a809e0792be62468e51203e41a5844, type: 2}
+--- !u!114 &114548055585080040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200221670258868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d3d2314b349354e943b56607a13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  agentParameters:
+    agentCameras: []
+    maxStep: 5000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 5
+  player: 1
+  ControlledByKeys: 0
+  VisionOnly: 0
+  rods: []
+  players: []
+  torque_factor: 5000
+  force_factor: 30000
+  last_distance_goal_reward: 0
+  total_reward: 0
+  mode: 0
+--- !u!114 &114886747253468020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200221670258868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d6287c87ef4a48a1f67c70b71a8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ball_drop_source: {fileID: 0}
+  play_area:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  player_agents:
+  - {fileID: 114022499012664202}
+  - {fileID: 114548055585080040}
+  LastPlayerWithBall: -1
+  LastRodWithBall: -1
+  TimeHeldByPlayer: 0
+  agents:
+  - {fileID: 114022499012664202}
+  - {fileID: 114548055585080040}

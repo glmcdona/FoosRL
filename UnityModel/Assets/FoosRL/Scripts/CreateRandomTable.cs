@@ -32,6 +32,7 @@ public enum PHYSICS_LAYERS
 
 public class CreateRandomTable : MonoBehaviour {
     public bool AllowSpinning = true;
+    public bool AddCameras = false;
 
     public List<Material> materials_exterior;
     public List<Material> materials_play_surface;
@@ -108,11 +109,11 @@ public class CreateRandomTable : MonoBehaviour {
 
         PhysicMaterial material_surface_physics = new PhysicMaterial("SurfaceFriction");
         material_surface_physics.bounciness = 0.95f + Random.Range(-0.2f, 0.05f); // loses 5% of energy on bounce
-        material_surface_physics.dynamicFriction = 0.10f + Random.Range(-0.05f, 0.1f); // When moving
+        material_surface_physics.dynamicFriction = 0.20f + Random.Range(-0.05f, 0.1f); // When moving
         material_surface_physics.staticFriction = 0.10f + Random.Range(-0.05f, 0.1f); // When static
 
         PhysicMaterial material_wall_physics = new PhysicMaterial("WallFriction");
-        material_wall_physics.bounciness = 0.95f + Random.Range(-0.2f, 0.05f); // loses 5% of energy on bounce
+        material_wall_physics.bounciness = 0.95f + Random.Range(-0.05f, 0.05f); // loses 5% of energy on bounce
         material_wall_physics.dynamicFriction = 0.10f + Random.Range(-0.05f, 0.1f); // When moving
         material_wall_physics.staticFriction = 0.10f + Random.Range(-0.05f, 0.1f); // When static
 
@@ -227,7 +228,6 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.localScale = new Vector3(table_inner_length, table_inner_wall_height, table_inner_width);
         go.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().play_area = new Bounds(new Vector3(0.0f, 0.0f, 0.0f), new Vector3(table_inner_length, table_inner_wall_height, table_inner_width));
 
 
         // Add the two goal sides as a mesh
@@ -428,28 +428,31 @@ public class CreateRandomTable : MonoBehaviour {
         this.GetComponent<TableManager>().ball_drop_source = go;
 
         // Place the two agent cameras
-        go = new GameObject("Camera Player 1");
-        go.AddComponent<Camera>();
-        go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                table_outer_length * 0.1f * Random.insideUnitSphere;
-        go.transform.transform.parent = table.transform;
-        // Point the camera at approximately the center of the table
-        go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-        go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
-        this.GetComponent<TableManager>().agents[0].SetCamera(go.GetComponent<Camera>());
+        if ( AddCameras )
+        {
+            go = new GameObject("Camera Player 1");
+            go.AddComponent<Camera>();
+            go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                    new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                    table_outer_length * 0.1f * Random.insideUnitSphere;
+            go.transform.transform.parent = table.transform;
+            // Point the camera at approximately the center of the table
+            go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+            go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
+            this.GetComponent<TableManager>().agents[0].SetCamera(go.GetComponent<Camera>());
 
-        go = new GameObject("Camera Player 2");
-        go.AddComponent<Camera>();
-        go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                table_outer_length * 0.1f * Random.insideUnitSphere;
-        go.transform.transform.parent = table.transform;
+            go = new GameObject("Camera Player 2");
+            go.AddComponent<Camera>();
+            go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                    new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                    table_outer_length * 0.1f * Random.insideUnitSphere;
+            go.transform.transform.parent = table.transform;
 
-        // Point the camera at approximately the center of the table
-        go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-        go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
-        this.GetComponent<TableManager>().agents[1].SetCamera(go.GetComponent<Camera>());
+            // Point the camera at approximately the center of the table
+            go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+            go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
+            this.GetComponent<TableManager>().agents[1].SetCamera(go.GetComponent<Camera>());
+        }
 
 
 
@@ -716,6 +719,7 @@ public class CreateRandomTable : MonoBehaviour {
         }
 
         table.transform.position = gameObject.transform.position;
+        this.GetComponent<TableManager>().play_area = new Bounds(table.transform.position, new Vector3(table_inner_length, table_inner_wall_height, table_inner_width));
     }
 
     GameObject BuildPlayerGameObject(Material material, PhysicMaterial material_foot_physics)
