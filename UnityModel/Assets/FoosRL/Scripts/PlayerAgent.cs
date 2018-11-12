@@ -21,6 +21,8 @@ public class PlayerAgent : Agent
     public float force_factor = 20000.0f;
     public float last_distance_goal_reward = 0.0f;
     public float total_reward = 0.0f;
+    public int max_goals = 10;
+    public int goals = 0;
 
     public ForceMode mode = ForceMode.Force;
 
@@ -33,9 +35,9 @@ public class PlayerAgent : Agent
     void Start () {
         // Load the table manager
         tm = GetComponent<TableManager>();
-        opponent = tm.player_agents[Mathf.Abs(player - 1)];
-        goal = tm.goals[player];
-        play_area = tm.play_area;
+        opponent = tm.PlayerAgents[Mathf.Abs(player - 1)];
+        goal = tm.Goals[player];
+        play_area = tm.PlayArea;
     }
 
     public void SetCamera(Camera camera)
@@ -72,6 +74,88 @@ public class PlayerAgent : Agent
         // Nothing.
     }
 
+    public override void CollectObservations()
+    {
+        if (VisionOnly)
+        {
+            // No observations, just the camera as input
+        }
+        else
+        {
+            // Add both player rod positions, angles, speeds, and ball position as features
+
+            // Ball coordinates
+            //AddVectorObs(NormalizePositionToPlayArea(tm.ball.transform.position));
+            //Debug.Log(NormalizePositionToPlayArea(tm.ball.transform.position));
+
+            // Ball velocity
+            //AddVectorObs(NormalizeVelocity(tm.ball.GetComponent<Rigidbody>().velocity * 10.0f));
+            //Debug.Log( NormalizeVelocity(tm.ball.GetComponent<Rigidbody>().velocity * 10.0f));
+
+            // Current player rods
+            //  x -> direction of play
+            //  y -> vertical
+            //  z -> direction of rods
+            foreach (GameObject rod in rods)
+            {
+                // Position
+                AddVectorObs(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f);
+                //if( player == 0 && rod == rods[0])
+                //    Debug.Log(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position));
+                AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f);
+
+
+                // Rod Angle
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                AddVectorObs(NormalizeAngle(angle));
+                //if (player == 0 && rod == rods[0])
+                //    Debug.Log( NormalizeAngle(angle) );
+
+                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+                //if (player == 0 && rod == rods[0])
+                //    Debug.Log(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+            }
+
+            // Opponent player rods
+            foreach (GameObject rod in opponent.rods)
+            {
+                // Position
+                AddVectorObs(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f);
+                AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f);
+
+                // Rod Angle
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                AddVectorObs(NormalizeAngle(angle));
+                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+            }
+
+            // Nearest ball position with respect to each current player physical rod players
+            foreach (GameObject player in players)
+            {
+                Vector2 RelPosition2d_min = Vector2.positiveInfinity;
+
+                foreach(GameObject ball in tm.Balls.Keys)
+                {
+                    Vector3 RelPosition = ball.transform.position - player.transform.position;
+                    Vector2 RelPosition2d = new Vector2(
+                            RelPosition.x / play_area.size.x,
+                            RelPosition.z / play_area.size.z
+                        );
+
+                    if (RelPosition2d.magnitude < RelPosition2d_min.magnitude)
+                        RelPosition2d_min = RelPosition2d;
+                }
+
+                // Add the player position to ball location vector
+                AddVectorObs(NormalizeLogistic(RelPosition2d_min * 10.0f)); // 10x resolution scaling so it gets detailed when the ball is close to each player on each axis
+            }
+
+            // Total:
+            // 3*3 + 4 * 4 + 4 * 4 = 41 float observations
+        }
+    }
+
+    /*
     public override void CollectObservations()
     {
         if (VisionOnly)
@@ -144,6 +228,7 @@ public class PlayerAgent : Agent
             // 3*3 + 4 * 4 + 4 * 4 = 41 float observations
         }
     }
+    */
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
@@ -192,8 +277,9 @@ public class PlayerAgent : Agent
         //_player_rewards_currentball[1] = -reward;
 
         // Even simpler reward! Reward is distance to goal.
+        /*
         float proximal_reward = 0.3f;
-        float denominator = 2.0f * Vector3.Distance(tm.ball_drop_source.transform.position, opponent.goal.transform.position);
+        float denominator = 2.0f * Vector3.Distance(tm.BallDropSource.transform.position, opponent.goal.transform.position);
         float distance_goal_opponent = Vector3.Distance(tm.ball.transform.position, opponent.goal.transform.position);
         float distance_goal_mine = Vector3.Distance(tm.ball.transform.position, goal.transform.position);
         float distance_goal_reward = proximal_reward - proximal_reward * distance_goal_opponent / denominator
@@ -204,7 +290,7 @@ public class PlayerAgent : Agent
         //total_reward += distance_goal_reward - last_distance_goal_reward;
 
         // Update last ball position reward
-        last_distance_goal_reward = distance_goal_reward;
+        last_distance_goal_reward = distance_goal_reward;*/
 
         // Tiny penalty for time passing
         AddReward(-0.5f / agentParameters.maxStep);
@@ -217,7 +303,9 @@ public class PlayerAgent : Agent
         AddReward(1.0f);
         total_reward += 1.0f;
         last_distance_goal_reward = 0.0f;
-        Done();
+        goals++;
+        if(goals >= max_goals)
+            Done();
     }
 
     public void GoalAgainst()
@@ -226,7 +314,9 @@ public class PlayerAgent : Agent
         AddReward(-1.0f);
         total_reward += -1.0f;
         last_distance_goal_reward = 0.0f;
-        Done();
+        goals++;
+        if (goals >= max_goals)
+            Done();
     }
 
     public void PenaltyTimeExceeded()
@@ -344,6 +434,7 @@ public class PlayerAgent : Agent
 
     public override void AgentReset()
     {
+        goals = 0;
         GetComponent<TableManager>().ResetGame();
     }
 

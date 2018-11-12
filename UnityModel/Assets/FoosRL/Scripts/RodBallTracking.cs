@@ -23,7 +23,7 @@ public class RodBallTracking : MonoBehaviour {
         if (collider.gameObject.CompareTag("Ball"))
         {
             if (tableManager != null)
-                tableManager.BallEnterRod(player, rod);
+                tableManager.BallEnterRod(collider.gameObject, player, rod);
         }
     }
 
@@ -32,7 +32,7 @@ public class RodBallTracking : MonoBehaviour {
         if (collider.gameObject.CompareTag("Ball"))
         {
             if (tableManager != null)
-                tableManager.BallExitRod(player, rod);
+                tableManager.BallExitRod(collider.gameObject, player, rod);
         }
     }
 }

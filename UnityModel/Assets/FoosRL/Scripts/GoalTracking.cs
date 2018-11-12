@@ -24,7 +24,7 @@ public class GoalTracking : MonoBehaviour {
         if (collider.gameObject.CompareTag("Ball"))
         {
             if (tableManager != null)
-                tableManager.BallEnterGoal(player);
+                tableManager.BallEnterGoal(collider.gameObject, player);
         }
     }
 }

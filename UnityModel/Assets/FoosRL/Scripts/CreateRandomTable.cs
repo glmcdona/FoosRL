@@ -33,6 +33,7 @@ public enum PHYSICS_LAYERS
 public class CreateRandomTable : MonoBehaviour {
     public bool AllowSpinning = true;
     public bool AddCameras = false;
+    public int NumberOfBalls = 5;
 
     public List<Material> materials_exterior;
     public List<Material> materials_play_surface;
@@ -300,7 +301,7 @@ public class CreateRandomTable : MonoBehaviour {
         gt.player = 0;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().goals[0] = go;
+        this.GetComponent<TableManager>().Goals[0] = go;
         
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Detector_Goal_Player2";
@@ -313,7 +314,7 @@ public class CreateRandomTable : MonoBehaviour {
         gt.player = 1;
         gt.tableManager = this.GetComponent<TableManager>();
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().goals[1] = go;
+        this.GetComponent<TableManager>().Goals[1] = go;
 
 
         // Add the end two sides of the table
@@ -402,20 +403,23 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.transform.parent = table.transform;
 
 
-        // Place the ball
-        go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        go.name = "Ball";
-        go.tag = "Ball";
-        rb = go.AddComponent<Rigidbody>();
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // So it won't fly through other objects if travelling too fast
-        rb.mass = ball_mass;
-        rb.maxAngularVelocity = 2f * 3.14f * 1000f;
-        go.layer = (int)PHYSICS_LAYERS.Ball;
-        go.GetComponent<Renderer>().material = material_ball;
-        go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
-        go.transform.position = new Vector3(0f, ball_diameter*2.0f, 0f);
-        go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().ball = go;
+        // Create the balls
+        for (int i = 0; i < NumberOfBalls; i++)
+        {
+            go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            go.name = "Ball";
+            go.tag = "Ball";
+            rb = go.AddComponent<Rigidbody>();
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // So it won't fly through other objects if travelling too fast
+            rb.mass = ball_mass;
+            rb.maxAngularVelocity = 2f * 3.14f * 1000f;
+            go.layer = (int)PHYSICS_LAYERS.Ball;
+            go.GetComponent<Renderer>().material = material_ball;
+            go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
+            go.transform.position = new Vector3(0f, ball_diameter * 2.0f, 0f);
+            go.transform.transform.parent = table.transform;
+            this.GetComponent<TableManager>().Balls.Add(go, new Ball(go, this.GetComponent<TableManager>()));
+        }
 
         // Place the ball drop source
         go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -425,7 +429,7 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
         go.transform.position = new Vector3(0f, ball_diameter * 3.0f, 0f);
         go.transform.transform.parent = table.transform;
-        this.GetComponent<TableManager>().ball_drop_source = go;
+        this.GetComponent<TableManager>().BallDropSource = go;
 
         // Place the two agent cameras
         if ( AddCameras )
@@ -439,7 +443,7 @@ public class CreateRandomTable : MonoBehaviour {
             // Point the camera at approximately the center of the table
             go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
             go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
-            this.GetComponent<TableManager>().agents[0].SetCamera(go.GetComponent<Camera>());
+            this.GetComponent<TableManager>().PlayerAgents[0].SetCamera(go.GetComponent<Camera>());
 
             go = new GameObject("Camera Player 2");
             go.AddComponent<Camera>();
@@ -451,7 +455,7 @@ public class CreateRandomTable : MonoBehaviour {
             // Point the camera at approximately the center of the table
             go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
             go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
-            this.GetComponent<TableManager>().agents[1].SetCamera(go.GetComponent<Camera>());
+            this.GetComponent<TableManager>().PlayerAgents[1].SetCamera(go.GetComponent<Camera>());
         }
 
 
@@ -488,8 +492,8 @@ public class CreateRandomTable : MonoBehaviour {
         float player_toes_to_toes = (table_inner_length - player_goalie_toes_to_wall * 2.0f - player_rod_to_toes * 16.0f) / 7.0f;
         float rod_spacing = 2.0f * player_rod_to_toes + player_toes_to_toes;
 
-        PlayerAgent player1_manager = this.GetComponent<TableManager>().agents[0];
-        PlayerAgent player2_manager = this.GetComponent<TableManager>().agents[1];
+        PlayerAgent player1_manager = this.GetComponent<TableManager>().PlayerAgents[0];
+        PlayerAgent player2_manager = this.GetComponent<TableManager>().PlayerAgents[1];
 
         for ( int i = 0; i < rods_info.Count; i++ )
         {
@@ -719,7 +723,7 @@ public class CreateRandomTable : MonoBehaviour {
         }
 
         table.transform.position = gameObject.transform.position;
-        this.GetComponent<TableManager>().play_area = new Bounds(table.transform.position, new Vector3(table_inner_length, table_inner_wall_height, table_inner_width));
+        this.GetComponent<TableManager>().PlayArea = new Bounds(table.transform.position, new Vector3(table_inner_length, table_inner_wall_height, table_inner_width));
     }
 
     GameObject BuildPlayerGameObject(Material material, PhysicMaterial material_foot_physics)

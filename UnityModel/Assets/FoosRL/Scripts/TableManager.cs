@@ -3,76 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TableManager : MonoBehaviour {
-
-    
-    public GameObject ball;
-    public GameObject ball_drop_source;
-    public Bounds play_area; // x: table_inner_length, y: table_inner_wall_height, z: table_inner_width
-
-    public GameObject[] goals = new GameObject[] {null, null};
-    public PlayerAgent[] player_agents = new PlayerAgent[] { null, null };
+public class Ball
+{
+    public GameObject BallGameObject;
+    public GameObject BallDropSource;
 
     public int LastPlayerWithBall = -1;
     public int LastRodWithBall = -1;
     public float TimeHeldByPlayer = 0.0f;
+    private TableManager _tm;
 
-    public bool DropRandomLocation = true;
-
-    // Agents
-    public PlayerAgent[] agents;
-    
-    private bool[,] _player_rod_hasball = new bool[2, 4] { { false, false, false, false }, { false, false, false, false } };
-
-    // Use this for initialization
-    void Start () {
-        ResetGame();
+    public Ball(GameObject ball, TableManager tm)
+    {
+        BallGameObject = ball;
+        _tm = tm;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void Update()
+    {
         TimeHeldByPlayer += Time.deltaTime;
 
-        if(TimeHeldByPlayer > 10.0f)
+        if (TimeHeldByPlayer > 10.0f)
         {
             BallStuck();
         }
     }
 
-
-    public void BallStuck()
-    {
-        Debug.Log("Ball is stuck.");
-        if(LastPlayerWithBall == -1)
-        {
-            // Reset giving it to random player, no penalty
-            ResetGame();
-        }
-        else
-        {
-            // Small penalty
-            player_agents[LastPlayerWithBall].PenaltyTimeExceeded();
-            // note: no reward for opponent, only the penalty
-
-            // Give ball to opponent at the 5-bar
-            ResetGame(Mathf.Abs(LastPlayerWithBall - 1));
-        }
-    }
-
-    // Callback for when a goal is made
-    public void BallEnterGoal(int player)
-    {
-        Debug.Log("Goal!");
-
-        // Count the goal rewards
-        player_agents[player].GoalAgainst();
-        player_agents[Mathf.Abs(player - 1)].Goal();
-
-        // Reset, give the ball to the opponent
-        ResetGame(Mathf.Abs(player - 1));
-    }
-
-    // Callback for tracking which rods have the ball
     public void BallEnterRod(int player, int rod_index)
     {
         if (LastPlayerWithBall != player)
@@ -80,23 +36,91 @@ public class TableManager : MonoBehaviour {
 
         LastPlayerWithBall = player;
         LastRodWithBall = rod_index;
-        _player_rod_hasball[player, rod_index] = true;
     }
 
     public void BallExitRod(int player, int rod_index)
     {
-        _player_rod_hasball[player, rod_index] = false;
+
     }
 
-    // Ball exit play area
-    public void BallExitPlay()
+    public void BallStuck()
     {
-        Debug.Log("Ball exited play.");
+        if (LastPlayerWithBall == -1)
+        {
+            // Reset giving it to random player, no penalty
+            ResetBall();
+        }
+        else
+        {
+            // Small penalty
+            _tm.PenaltyTimeExceeded(LastPlayerWithBall);
+
+            // Give ball to opponent at the 5-bar
+            ResetBall(Mathf.Abs(LastPlayerWithBall - 1));
+        }
+    }
+
+
+    public void ResetBall(int? give_to_player = null)
+    {
+        // Reset time held counter
+        TimeHeldByPlayer = 0.0f;
+
+        // Ask the table to reset the ball
+        _tm.ResetBall(BallGameObject, give_to_player);
+    }
+
+    
+}
+
+
+public class TableManager : MonoBehaviour {
+
+
+    public Dictionary<GameObject, Ball> Balls = new Dictionary<GameObject, Ball>(5);
+    public GameObject BallDropSource;
+    public Bounds PlayArea; // x: table_inner_length, y: table_inner_wall_height, z: table_inner_width
+
+    public GameObject[] Goals = new GameObject[] {null, null};
+    public PlayerAgent[] PlayerAgents = new PlayerAgent[] { null, null };
+
+    public int LastPlayerWithBall = -1;
+    public int LastRodWithBall = -1;
+    public float TimeHeldByPlayer = 0.0f;
+
+    public bool DropRandomLocation = true;
+    
+
+    // Use this for initialization
+    void Start () {
         ResetGame();
     }
 
-    // Reset
-    public void ResetGame( int? give_to_player = null )
+    public void ResetGame()
+    {
+        // Reposition all balls
+        foreach (Ball ball in Balls.Values)
+        {
+            ball.ResetBall();
+        }
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        foreach( Ball ball in Balls.Values)
+        {
+            ball.Update();
+        }
+    }
+    
+    public void PenaltyTimeExceeded(int playerWhoHadBall)
+    {
+        // note: no reward for opponent, only the penalty
+        PlayerAgents[playerWhoHadBall].PenaltyTimeExceeded();
+    }
+
+    // Reset this ball
+    public void ResetBall(GameObject ball, int? give_to_player = null)
     {
         if (!DropRandomLocation)
         {
@@ -109,9 +133,9 @@ public class TableManager : MonoBehaviour {
 
             // Give the ball to the specified player
             if (give_to_player == 0)
-                ball.transform.position = ball_drop_source.transform.position - gameObject.transform.right * 1.5f * ball.transform.localScale.x;
+                ball.transform.position = BallDropSource.transform.position - gameObject.transform.right * 1.5f * ball.transform.localScale.x;
             else
-                ball.transform.position = ball_drop_source.transform.position + gameObject.transform.right * 1.5f * ball.transform.localScale.x;
+                ball.transform.position = BallDropSource.transform.position + gameObject.transform.right * 1.5f * ball.transform.localScale.x;
 
             // Reset ball speed
             ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -122,9 +146,9 @@ public class TableManager : MonoBehaviour {
             // Drop the ball in a random position on the table
             float delta = 0.4f;
             ball.transform.position = new Vector3(
-                    UnityEngine.Random.Range(play_area.min.x + delta, play_area.max.x - delta),
-                    UnityEngine.Random.Range(play_area.min.y + delta, play_area.max.y - delta),
-                    UnityEngine.Random.Range(play_area.min.z + delta, play_area.max.z - delta)
+                    UnityEngine.Random.Range(PlayArea.min.x + delta, PlayArea.max.x - delta),
+                    UnityEngine.Random.Range(PlayArea.min.y + delta, PlayArea.max.y - delta),
+                    UnityEngine.Random.Range(PlayArea.min.z + delta, PlayArea.max.z - delta)
                 );
 
             // Assign random velocity
@@ -139,8 +163,38 @@ public class TableManager : MonoBehaviour {
                     UnityEngine.Random.Range(-3f, 3f)
                 );
         }
-        
-        // Reset time held counter
-        TimeHeldByPlayer = 0.0f;
     }
+
+    // Callback for when a goal is made
+    public void BallEnterGoal(GameObject ball, int player)
+    {
+        Debug.Log("Goal!");
+
+        // Count the goal rewards
+        PlayerAgents[player].GoalAgainst();
+        PlayerAgents[Mathf.Abs(player - 1)].Goal();
+
+        // Reset the ball
+        Balls[ball].ResetBall(Mathf.Abs(player - 1));
+    }
+
+    // Callback for tracking which rods have the ball
+    public void BallEnterRod(GameObject ball, int player, int rod_index)
+    {
+        Balls[ball].BallEnterRod(player, rod_index);
+    }
+
+    public void BallExitRod(GameObject ball, int player, int rod_index)
+    {
+        Balls[ball].BallExitRod(player, rod_index);
+    }
+
+    // Ball exit play area
+    public void BallExitPlay(GameObject ball)
+    {
+        Debug.Log("Ball exited play.");
+        Balls[ball].ResetBall();
+    }
+
+    
 }
