@@ -89,6 +89,8 @@ public class TableManager : MonoBehaviour {
     public float TimeHeldByPlayer = 0.0f;
 
     public bool DropRandomLocation = true;
+
+    
     
 
     // Use this for initialization

@@ -33,6 +33,7 @@ public enum PHYSICS_LAYERS
 public class CreateRandomTable : MonoBehaviour {
     public bool AllowSpinning = true;
     public bool AddCameras = false;
+    public bool CameraAboveTable = true;
     public int NumberOfBalls = 5;
 
     public List<Material> materials_exterior;
@@ -434,28 +435,47 @@ public class CreateRandomTable : MonoBehaviour {
         // Place the two agent cameras
         if ( AddCameras )
         {
-            go = new GameObject("Camera Player 1");
-            go.AddComponent<Camera>();
-            go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                    new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                    table_outer_length * 0.1f * Random.insideUnitSphere;
-            go.transform.transform.parent = table.transform;
-            // Point the camera at approximately the center of the table
-            go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-            go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
-            this.GetComponent<TableManager>().PlayerAgents[0].SetCamera(go.GetComponent<Camera>());
+            if (CameraAboveTable)
+            {
+                // Position the camera looking down at the table at approximately the center
+                go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
+                go.transform.position = new Vector3(0f, 0f, 0f) +
+                                        new Vector3(0f, table_outer_length / 1.8f , 0f) +
+                                        0.1f * Random.insideUnitSphere;
+                go.transform.transform.parent = table.transform;
+                go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 5.0f*(Random.value-0.5f) , 5.0f * (Random.value - 0.5f));
 
-            go = new GameObject("Camera Player 2");
-            go.AddComponent<Camera>();
-            go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                    new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                    table_outer_length * 0.1f * Random.insideUnitSphere;
-            go.transform.transform.parent = table.transform;
+                // Position second camera, but rotated
+                go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
+                go.transform.position = new Vector3(0f, 0f, 0f) +
+                                        new Vector3(0f, table_outer_length / 1.8f, 0f) +
+                                        0.1f * Random.insideUnitSphere;
+                go.transform.transform.parent = table.transform;
+                go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 180.0f + 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f));
+            }
+            else
+            {
+                go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
+                go.AddComponent<Camera>();
+                go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                        new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                        table_outer_length * 0.1f * Random.insideUnitSphere;
+                go.transform.transform.parent = table.transform;
+                // Point the camera at approximately the center of the table
+                go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+                go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
 
-            // Point the camera at approximately the center of the table
-            go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-            go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
-            this.GetComponent<TableManager>().PlayerAgents[1].SetCamera(go.GetComponent<Camera>());
+                go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
+                go.AddComponent<Camera>();
+                go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                        new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                        table_outer_length * 0.1f * Random.insideUnitSphere;
+                go.transform.transform.parent = table.transform;
+
+                // Point the camera at approximately the center of the table
+                go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+                go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
+            }
         }
 
 

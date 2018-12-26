@@ -2,12 +2,13 @@
 using UnityEngine;
 using MLAgents;
 
-public class HeuristicDecision : MonoBehaviour, Decision
+
+public class HeuristicDecision : Decision
 {
     private float timeInState = 10.0f;
     private float[] state = new float[8] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, };
 
-    public float[] Decide(
+    public override float[] Decide(
         List<float> vectorObs,
         List<Texture2D> visualObs,
         float reward,
@@ -42,7 +43,7 @@ public class HeuristicDecision : MonoBehaviour, Decision
         return state;
     }
 
-    public List<float> MakeMemory(
+    public override List<float> MakeMemory(
         List<float> vectorObs,
         List<Texture2D> visualObs,
         float reward,

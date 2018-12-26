@@ -237,12 +237,29 @@ public class PlayerAgent : Agent
         // 4-7: Torque rods 0 to 3
         if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
-            for(int rod = 0; rod < 4; rod ++)
+            for (int rod = 0; rod < 4; rod++)
             {
                 // Apply the agent action forces for this rod
                 var linear = force_factor * Mathf.Clamp(vectorAction[rod], -1f, 1f);
-                var torque = torque_factor * Mathf.Clamp(vectorAction[rod+4], -1f, 1f);
-                
+                var torque = torque_factor * Mathf.Clamp(vectorAction[rod + 4], -1f, 1f);
+
+                rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
+                rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
+            }
+        }
+        else
+        {
+            // Discrete actions
+
+            // 0-3: Linear rods 0 to 3
+            //      0: nothing. 1 push, 2 pull
+            // 4-7: Torque rods 0 to 3
+            //      0: nothing. 1 cw, 2 ccw
+            for (int rod = 0; rod < 4; rod++)
+            {
+                // Apply the agent action forces for this rod
+                var linear = force_factor * ( ( vectorAction[rod] == 1 ? 1f : 0f ) + (vectorAction[rod] == 2 ? -1f : 0f) );
+                var torque = torque_factor * ((vectorAction[rod+4] == 1 ? 1f : 0f) + (vectorAction[rod+4] == 2 ? -1f : 0f));
                 rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
                 rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
             }
