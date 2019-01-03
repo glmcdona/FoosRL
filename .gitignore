@@ -5,6 +5,12 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Unit and training model files
+*.log
+Training/models/
+Training/summaries/
+Training/.ipynb_checkpoints/
+
 # Visual Studio cache directory
 .vs/
 

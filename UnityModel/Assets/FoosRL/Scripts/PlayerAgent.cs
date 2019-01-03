@@ -7,8 +7,13 @@ public class PlayerAgent : Agent
 {
     public int player = -1;
 
+    public int DiscreteActionLevels = 1;
+
     public bool ControlledByKeys = false;
     public bool VisionOnly = false;
+    public bool EndGameOnMaxGoals = true;
+    public bool ApplyForceVerticalRods = true;
+    public bool AgentControlPosition = true;
 
     // Rods order:
     //   0: Goalie
@@ -79,6 +84,53 @@ public class PlayerAgent : Agent
         if (VisionOnly)
         {
             // No observations, just the camera as input
+
+            // Basic feature set (32+6=38 floats)
+
+            // Ball coordinates
+            AddVectorObs(NormalizePositionToPlayArea(tm.BallsGo[0].transform.position));
+
+            // Ball velocity
+            AddVectorObs(NormalizeVelocity(tm.BallsGo[0].GetComponent<Rigidbody>().velocity * 10.0f));
+            
+            //Debug.Log( NormalizeVelocity(tm.BallsGo[0].GetComponent<Rigidbody>().velocity * 10.0f));
+
+            // Current player rods
+            //  x -> direction of play
+            //  y -> vertical
+            //  z -> direction of rods
+            foreach (GameObject rod in rods)
+            {
+                // Position
+                AddVectorObs(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f);
+                //if( player == 0 && rod == rods[0])
+                //    Debug.Log(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position));
+                AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f);
+
+
+                // Rod Angle
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                AddVectorObs(NormalizeAngle(angle));
+                //if (player == 0 && rod == rods[0])
+                //    Debug.Log( NormalizeAngle(angle) );
+
+                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+                //if (player == 0 && rod == rods[0])
+                //    Debug.Log(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+            }
+
+            // Opponent player rods
+            foreach (GameObject rod in opponent.rods)
+            {
+                // Position
+                AddVectorObs(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f);
+                AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f);
+
+                // Rod Angle
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                AddVectorObs(NormalizeAngle(angle));
+                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
+            }
         }
         else
         {
@@ -249,19 +301,30 @@ public class PlayerAgent : Agent
         }
         else
         {
-            // Discrete actions
-
             // 0-3: Linear rods 0 to 3
-            //      0: nothing. 1 push, 2 pull
+            //      0: push hardest. 1 push moderate, 2 push slowly, 3 nothing, 4 push slowly, 5 push moderate, 6, push hard
             // 4-7: Torque rods 0 to 3
-            //      0: nothing. 1 cw, 2 ccw
+            //      0: nothing. 1 cw, DiscreteActionLevels+1 ccw
             for (int rod = 0; rod < 4; rod++)
             {
                 // Apply the agent action forces for this rod
-                var linear = force_factor * ( ( vectorAction[rod] == 1 ? 1f : 0f ) + (vectorAction[rod] == 2 ? -1f : 0f) );
-                var torque = torque_factor * ((vectorAction[rod+4] == 1 ? 1f : 0f) + (vectorAction[rod+4] == 2 ? -1f : 0f));
+                var linear = force_factor * (float)(vectorAction[rod] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
+                var torque = force_factor * (float)(vectorAction[rod + 4] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
                 rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
                 rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
+            }
+        }
+
+        if (this.ApplyForceVerticalRods)
+        {
+            // Apply force to each rod to make them vertical
+            foreach (GameObject rod in rods)
+            {
+                // Rod Angle
+                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
+                rod.GetComponent<Rigidbody>().AddRelativeTorque(
+                    new Vector3(0.0f, 0.0f, (angle / 700.0f - rod.GetComponent<Rigidbody>().angularVelocity.z / 10000.0f) * force_factor)
+                    , mode);
             }
         }
 
@@ -310,8 +373,8 @@ public class PlayerAgent : Agent
         last_distance_goal_reward = distance_goal_reward;*/
 
         // Tiny penalty for time passing
-        AddReward(-0.5f / agentParameters.maxStep);
-        total_reward += -0.5f / agentParameters.maxStep;
+        AddReward(-0.5f / 10000.0f);
+        total_reward += -0.5f / 10000.0f;
     }
 
     public void Goal()
@@ -321,8 +384,11 @@ public class PlayerAgent : Agent
         total_reward += 1.0f;
         last_distance_goal_reward = 0.0f;
         goals++;
-        if(goals >= max_goals)
+        if (goals >= max_goals && EndGameOnMaxGoals)
+        {
+            goals = 0;
             Done();
+        }
     }
 
     public void GoalAgainst()
@@ -332,8 +398,11 @@ public class PlayerAgent : Agent
         total_reward += -1.0f;
         last_distance_goal_reward = 0.0f;
         goals++;
-        if (goals >= max_goals)
+        if (goals >= max_goals && EndGameOnMaxGoals)
+        {
+            goals = 0;
             Done();
+        }
     }
 
     public void PenaltyTimeExceeded()

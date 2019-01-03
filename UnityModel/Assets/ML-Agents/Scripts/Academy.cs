@@ -319,9 +319,11 @@ namespace MLAgents
                 }
 
                 var pythonParameters = brainBatcher.SendAcademyParameters(academyParameters);
+
+                
                 Random.InitState(pythonParameters.Seed);
                 Application.logMessageReceived += HandleLog;
-                logPath = Path.GetFullPath(".") + "/UnitySDK.log";
+                logPath = Path.GetFullPath(".") + "/UnitySDK_" + System.Guid.NewGuid().ToString() + ".log";
                 logWriter = new StreamWriter(logPath, false);
                 logWriter.WriteLine(System.DateTime.Now.ToString());
                 logWriter.WriteLine(" ");

@@ -1,0 +1,1 @@
+mlagents-learn trainer_config.yaml --env=.\FoosRLBuild_Agents64\FoosRLBuild_Agents64.exe --run-id=main_run_agents64 --worker-id=0 --train

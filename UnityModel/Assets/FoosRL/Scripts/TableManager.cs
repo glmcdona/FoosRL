@@ -78,6 +78,7 @@ public class TableManager : MonoBehaviour {
 
 
     public Dictionary<GameObject, Ball> Balls = new Dictionary<GameObject, Ball>(5);
+    public List<GameObject> BallsGo = new List<GameObject>(5);
     public GameObject BallDropSource;
     public Bounds PlayArea; // x: table_inner_length, y: table_inner_wall_height, z: table_inner_width
 
@@ -95,6 +96,7 @@ public class TableManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        BallsGo = new List<GameObject>(Balls.Keys);
         ResetGame();
     }
 

@@ -1,0 +1,3 @@
+pip uninstall tensorflow
+pip uninstall tensorflow-gpu
+pip install tensorflow-gpu==1.7.1

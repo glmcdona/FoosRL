@@ -437,21 +437,27 @@ public class CreateRandomTable : MonoBehaviour {
         {
             if (CameraAboveTable)
             {
-                // Position the camera looking down at the table at approximately the center
-                go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
-                go.transform.position = new Vector3(0f, 0f, 0f) +
-                                        new Vector3(0f, table_outer_length / 1.8f , 0f) +
-                                        0.1f * Random.insideUnitSphere;
-                go.transform.transform.parent = table.transform;
-                go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 5.0f*(Random.value-0.5f) , 5.0f * (Random.value - 0.5f));
+                if (this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras.Count > 0)
+                {
+                    // Position the camera looking down at the table at approximately the center
+                    go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
+                    go.transform.position = new Vector3(0f, 0f, 0f) +
+                                            new Vector3(0f, table_outer_length / 1.8f, 0f) +
+                                            0.1f * Random.insideUnitSphere;
+                    go.transform.transform.parent = table.transform;
+                    go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f));
+                }
 
-                // Position second camera, but rotated
-                go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
-                go.transform.position = new Vector3(0f, 0f, 0f) +
-                                        new Vector3(0f, table_outer_length / 1.8f, 0f) +
-                                        0.1f * Random.insideUnitSphere;
-                go.transform.transform.parent = table.transform;
-                go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 180.0f + 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f));
+                if (this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras.Count > 0)
+                {
+                    // Position second camera, but rotated
+                    go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
+                    go.transform.position = new Vector3(0f, 0f, 0f) +
+                                            new Vector3(0f, table_outer_length / 1.8f, 0f) +
+                                            0.1f * Random.insideUnitSphere;
+                    go.transform.transform.parent = table.transform;
+                    go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 180.0f + 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f));
+                }
             }
             else
             {

@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/ML-Agents/Examples/3DBall/Scenes/3DBallHard.unity
-    guid: 35c41099ceec44889bdbe95ed86c97ac
-  - enabled: 1
-    path: Assets/ML-Agents/Scene/FoosAI.unity
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/FoosRL/Scene/FoosAI_Agents_32.unity
     guid: c9996060fcd7da14c90de51abe5ed822
+  - enabled: 1
+    path: Assets/FoosRL/Scene/FoosAI_Agents_1.unity
+    guid: 90f85b26847021141aac967b0ecdccaf
   m_configObjects: {}

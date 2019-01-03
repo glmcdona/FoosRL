@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Name: FoosHeurBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 38
     numStackedVectorObservations: 1
-    vectorActionSize: 01000000
+    vectorActionSize: 08000000
     cameraResolutions: []
     vectorActionDescriptions:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
     - 
     vectorActionSpaceType: 1
   decision: {fileID: 0}
   decisionScript: {fileID: 11500000, guid: 93664f69312dc2b4ca11265e1dcf4e7c, type: 3}
-  c_decision: 
+  c_decision: HeuristicDecision

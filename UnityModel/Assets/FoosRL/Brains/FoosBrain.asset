@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Name: FoosBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 38
     numStackedVectorObservations: 1
-    vectorActionSize: 08000000
-    cameraResolutions:
-    - width: 256
-      height: 128
-      blackAndWhite: 1
+    vectorActionSize: 0b0000000b0000000b0000000b0000000b0000000b0000000b0000000b000000
+    cameraResolutions: []
     vectorActionDescriptions:
     - 
     - 
@@ -28,5 +25,5 @@ MonoBehaviour:
     - 
     - 
     - 
-    vectorActionSpaceType: 1
+    vectorActionSpaceType: 0
   model: {fileID: 0}
