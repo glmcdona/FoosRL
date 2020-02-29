@@ -413,7 +413,7 @@ Prefab:
     - target: {fileID: 114098551052187766, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
       propertyPath: AddCameras
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114548055585080040, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
@@ -443,12 +443,12 @@ Prefab:
     - target: {fileID: 114022499012664202, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
       propertyPath: torque_factor
-      value: 3000
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 114022499012664202, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
       propertyPath: force_factor
-      value: 20000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 114548055585080040, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
@@ -498,12 +498,17 @@ Prefab:
     - target: {fileID: 114022499012664202, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
       propertyPath: DiscreteActionLevels
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114548055585080040, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
         type: 2}
       propertyPath: ApplyForceVerticalRods
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022499012664202, guid: c71f0d4fbd75abf4fb27bd617ed79b50,
+        type: 2}
+      propertyPath: EndGameOnMaxGoals
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c71f0d4fbd75abf4fb27bd617ed79b50, type: 2}
@@ -577,12 +582,12 @@ Prefab:
     - target: {fileID: 114604966659152302, guid: 08cc037334bc5724785d923e8344a2b4,
         type: 2}
       propertyPath: trainingConfiguration.width
-      value: 256
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 114604966659152302, guid: 08cc037334bc5724785d923e8344a2b4,
         type: 2}
       propertyPath: trainingConfiguration.height
-      value: 128
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08cc037334bc5724785d923e8344a2b4, type: 2}

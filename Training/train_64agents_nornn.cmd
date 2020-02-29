@@ -1,1 +1,0 @@
-mlagents-learn trainer_config_nornn.yaml --env=.\FoosRLBuild_Agents64\FoosRLBuild_Agents64.exe --run-id=agents_64_nornn --worker-id=1 --train

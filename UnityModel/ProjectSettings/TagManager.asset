@@ -42,10 +42,10 @@ TagManager:
   - RodBumpers
   - Ball
   - BallDetector
-  - 
-  - 
-  - 
-  - 
+  - Camera_Goals
+  - Camera_Players
+  - Camera_Edges
+  - Camera_Rods
   - 
   - 
   - 

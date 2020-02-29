@@ -4,288 +4,307 @@ default:
     beta: 5.0e-3
     buffer_size: 10240
     epsilon: 0.2
-    gamma: 0.99
     hidden_units: 128
     lambd: 0.95
     learning_rate: 3.0e-4
-    max_steps: 5.0e4
+    learning_rate_schedule: linear
+    max_steps: 5.0e7
     memory_size: 256
     normalize: false
     num_epoch: 3
     num_layers: 2
     time_horizon: 64
     sequence_length: 64
-    summary_freq: 1000
-    use_recurrent: false
-    use_curiosity: false
-    curiosity_strength: 0.01
-    curiosity_enc_size: 128
-
-
-
-BrainTraining:
-    learning_rate: 3.0e-4
-    use_recurrent: true
-    sequence_length: 64
-    num_layers: 2
-    hidden_units: 128
-    memory_size: 512
-    beta: 1.0e-4
-    gamma: 0.9975
-    lambd: 0.95
-    num_epoch: 5
-    buffer_size: 32768
-    batch_size: 512
-    max_steps: 5.0e7
     summary_freq: 10000
-    time_horizon: 128
+    use_recurrent: false
+    vis_encode_type: simple
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.99
 
+FoosRL:
+    time_horizon: 200
+    batch_size: 64
+    buffer_size: 1024
+    hidden_units: 256
+    num_layers: 1
+    beta: 1.0e-2
+    max_steps: 1.0e9
+    num_epoch: 3
 
+    use_recurrent: true
+    sequence_length: 8
+    memory_size: 256
 
-BananaBrain:
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.99
+        curiosity:
+            strength: 0.005
+            gamma: 0.99
+            encoding_size: 256
+
+FoodCollector:
     normalize: false
-    batch_size: 1024
     beta: 5.0e-3
+    batch_size: 1024
     buffer_size: 10240
-    max_steps: 1.0e5
+    max_steps: 2.0e6
 
-BouncerBrain:
+Bouncer:
     normalize: true
-    max_steps: 5.0e5
+    max_steps: 7.0e6
     num_layers: 2
     hidden_units: 64
 
-PushBlockBrain:
-    max_steps: 5.0e4
+PushBlock:
+    max_steps: 1.5e7
     batch_size: 128
     buffer_size: 2048
     beta: 1.0e-2
     hidden_units: 256
-    summary_freq: 2000
+    summary_freq: 60000
     time_horizon: 64
     num_layers: 2
 
-SmallWallBrain: 
-    max_steps: 1.0e6
+SmallWallJump:
+    max_steps: 5e6
     batch_size: 128
     buffer_size: 2048
     beta: 5.0e-3
     hidden_units: 256
-    summary_freq: 2000
+    summary_freq: 20000
     time_horizon: 128
     num_layers: 2
     normalize: false
 
-BigWallBrain: 
-    max_steps: 1.0e6
+BigWallJump:
+    max_steps: 2e7
     batch_size: 128
     buffer_size: 2048
     beta: 5.0e-3
     hidden_units: 256
-    summary_freq: 2000
+    summary_freq: 20000
     time_horizon: 128
     num_layers: 2
     normalize: false
 
-StrikerBrain:
-    max_steps: 5.0e5
-    learning_rate: 1e-3
-    batch_size: 128
-    num_epoch: 3
-    buffer_size: 2000
-    beta: 1.0e-2
-    hidden_units: 256
-    summary_freq: 2000
-    time_horizon: 128
-    num_layers: 2
-    normalize: false
-
-GoalieBrain:
-    max_steps: 5.0e5
-    learning_rate: 1e-3
-    batch_size: 320
-    num_epoch: 3
-    buffer_size: 2000
-    beta: 1.0e-2
-    hidden_units: 256
-    summary_freq: 2000
-    time_horizon: 128
-    num_layers: 2
-    normalize: false
-
-PyramidBrain:
-    use_curiosity: true
-    summary_freq: 2000
-    curiosity_strength: 0.01
-    curiosity_enc_size: 256
+Pyramids:
+    summary_freq: 30000
     time_horizon: 128
     batch_size: 128
     buffer_size: 2048
     hidden_units: 512
     num_layers: 2
     beta: 1.0e-2
-    max_steps: 5.0e5
+    max_steps: 1.0e7
     num_epoch: 3
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.99
+        curiosity:
+            strength: 0.02
+            gamma: 0.99
+            encoding_size: 256
 
-VisualPyramidBrain:
-    use_curiosity: true
-    curiosity_strength: 0.01
-    curiosity_enc_size: 256
+VisualPyramids:
     time_horizon: 128
     batch_size: 64
     buffer_size: 2024
     hidden_units: 256
     num_layers: 1
     beta: 1.0e-2
-    max_steps: 5.0e5
+    max_steps: 1.0e7
     num_epoch: 3
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.99
+        curiosity:
+            strength: 0.01
+            gamma: 0.99
+            encoding_size: 256
 
-Ball3DBrain:
+3DBall:
     normalize: true
     batch_size: 64
     buffer_size: 12000
-    summary_freq: 1000
+    summary_freq: 12000
     time_horizon: 1000
     lambd: 0.99
-    gamma: 0.995
     beta: 0.001
 
-Ball3DHardBrain:
+3DBallHard:
     normalize: true
     batch_size: 1200
     buffer_size: 12000
-    summary_freq: 1000
+    summary_freq: 12000
     time_horizon: 1000
-    gamma: 0.995
+    max_steps: 5.0e5
     beta: 0.001
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.995
 
-TennisBrain:
+Tennis:
     normalize: true
+    max_steps: 5.0e7
+    learning_rate_schedule: constant
+    batch_size: 1024
+    buffer_size: 10240
+    hidden_units: 256
+    time_horizon: 1000
+    self_play:
+        window: 10
+        play_against_current_self_ratio: 0.5
+        save_steps: 50000
+        swap_steps: 50000
 
-CrawlerBrain:
+Soccer:
+    normalize: false
+    max_steps: 5.0e7
+    learning_rate_schedule: constant
+    batch_size: 2048
+    buffer_size: 20480
+    hidden_units: 512
+    time_horizon: 1000
+    num_layers: 2
+    self_play:
+        window: 10
+        play_against_current_self_ratio: 0.5
+        save_steps: 50000
+        swap_steps: 50000
+
+CrawlerStatic:
     normalize: true
     num_epoch: 3
     time_horizon: 1000
     batch_size: 2024
     buffer_size: 20240
-    gamma: 0.995
-    max_steps: 1e6
-    summary_freq: 3000
+    max_steps: 1e7
+    summary_freq: 30000
     num_layers: 3
     hidden_units: 512
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.995
 
-WalkerBrain:
+CrawlerDynamic:
+    normalize: true
+    num_epoch: 3
+    time_horizon: 1000
+    batch_size: 2024
+    buffer_size: 20240
+    max_steps: 1e7
+    summary_freq: 30000
+    num_layers: 3
+    hidden_units: 512
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.995
+
+Walker:
     normalize: true
     num_epoch: 3
     time_horizon: 1000
     batch_size: 2048
     buffer_size: 20480
-    gamma: 0.995
-    max_steps: 2e6
-    summary_freq: 3000
+    max_steps: 2e7
+    summary_freq: 30000
     num_layers: 3
     hidden_units: 512
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.995
 
-ReacherBrain:
+Reacher:
     normalize: true
     num_epoch: 3
     time_horizon: 1000
     batch_size: 2024
     buffer_size: 20240
-    gamma: 0.995
-    max_steps: 1e6
-    summary_freq: 3000
+    max_steps: 2e7
+    summary_freq: 60000
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.995
 
-HallwayBrain:
+Hallway:
     use_recurrent: true
     sequence_length: 64
     num_layers: 2
     hidden_units: 128
     memory_size: 256
     beta: 1.0e-2
-    gamma: 0.99
     num_epoch: 3
     buffer_size: 1024
     batch_size: 128
-    max_steps: 5.0e5
-    summary_freq: 1000
+    max_steps: 1.0e7
+    summary_freq: 10000
     time_horizon: 64
 
-VisualHallwayBrain:
+VisualHallway:
     use_recurrent: true
     sequence_length: 64
     num_layers: 1
     hidden_units: 128
     memory_size: 256
     beta: 1.0e-2
-    gamma: 0.99
     num_epoch: 3
     buffer_size: 1024
     batch_size: 64
-    max_steps: 5.0e5
-    summary_freq: 1000
+    max_steps: 1.0e7
+    summary_freq: 10000
     time_horizon: 64
 
-VisualPushBlockBrain:
+VisualPushBlock:
     use_recurrent: true
     sequence_length: 32
     num_layers: 1
     hidden_units: 128
     memory_size: 256
     beta: 1.0e-2
-    gamma: 0.99
     num_epoch: 3
     buffer_size: 1024
     batch_size: 64
-    max_steps: 5.0e5
-    summary_freq: 1000
+    max_steps: 3.0e6
+    summary_freq: 60000
     time_horizon: 64
 
-GridWorldBrain:
+GridWorld:
     batch_size: 32
     normalize: false
     num_layers: 1
     hidden_units: 256
     beta: 5.0e-3
-    gamma: 0.9
     buffer_size: 256
-    max_steps: 5.0e5
-    summary_freq: 2000
+    max_steps: 500000
+    summary_freq: 20000
     time_horizon: 5
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.9
 
-BasicBrain:
+Basic:
     batch_size: 32
     normalize: false
     num_layers: 1
     hidden_units: 20
     beta: 5.0e-3
-    gamma: 0.9
     buffer_size: 256
     max_steps: 5.0e5
     summary_freq: 2000
     time_horizon: 3
-
-StudentBrain:
-    trainer: imitation
-    max_steps: 10000
-    summary_freq: 1000
-    brain_to_imitate: TeacherBrain
-    batch_size: 16
-    batches_per_epoch: 5
-    num_layers: 4
-    hidden_units: 64
-    sequence_length: 16
-    buffer_size: 128
-
-StudentRecurrentBrain:
-    trainer: imitation
-    max_steps: 10000
-    summary_freq: 1000
-    brain_to_imitate: TeacherBrain
-    batch_size: 16
-    batches_per_epoch: 5
-    num_layers: 4
-    hidden_units: 64
-    use_recurrent: true
-    sequence_length: 32
-    buffer_size: 128
+    reward_signals:
+        extrinsic:
+            strength: 1.0
+            gamma: 0.9

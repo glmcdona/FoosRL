@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: FoosHeurBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 38
+    vectorObservationSize: 0
     numStackedVectorObservations: 1
     vectorActionSize: 08000000
     cameraResolutions: []

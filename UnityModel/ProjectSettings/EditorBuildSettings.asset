@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/FoosRL/Scene/FoosAI_Agents_32.unity
     guid: c9996060fcd7da14c90de51abe5ed822
-  - enabled: 1
+  - enabled: 0
     path: Assets/FoosRL/Scene/FoosAI_Agents_1.unity
     guid: 90f85b26847021141aac967b0ecdccaf
   m_configObjects: {}

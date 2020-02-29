@@ -1,1 +1,0 @@
-mlagents-learn trainer_config_largerbeta.yaml --env=.\FoosRLBuild_Agents64\FoosRLBuild_Agents64.exe --run-id=agents_64_largerbeta --worker-id=2 --train

@@ -25,7 +25,11 @@ public enum PHYSICS_LAYERS
     Rods = 9,
     RodBumpers = 10,
     Ball = 11,
-    BallDetector = 12
+    BallDetector = 12,
+    Camera_Goals = 13,
+    Camera_Players = 14,
+    Camera_Edges = 15,
+    Camera_Rods = 16,
 }
 
 
@@ -162,6 +166,15 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.transform.parent = table.transform;
         go.GetComponent<Collider>().material = material_surface_physics;
 
+        go = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        go.name = "Camera_PlaySurface";
+        go.layer = (int)PHYSICS_LAYERS.Camera_Edges;
+        Destroy(go.GetComponent<BoxCollider>());
+        go.GetComponent<Renderer>().material = material_play_surface;
+        go.transform.localScale = new Vector3(table_inner_length, 1, table_inner_width) / 10.0f;
+        go.transform.position = new Vector3(0, delta, 0);
+        go.transform.transform.parent = table.transform;
+
         // Add the in-play-area detector, to detect if a ball has dissapeared for somehow
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Detector_BallOnTable";
@@ -175,6 +188,7 @@ public class CreateRandomTable : MonoBehaviour {
         // Add the two sides
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Side1Exterior";
+        go.layer = (int)PHYSICS_LAYERS.Camera_Edges;
         Destroy(go.GetComponent<BoxCollider>());
         go.GetComponent<Renderer>().material = material_exterior;
         go.transform.localScale = new Vector3(table_outer_length, table_inner_wall_height, (table_outer_width - table_inner_width)/2.0f);
@@ -193,6 +207,7 @@ public class CreateRandomTable : MonoBehaviour {
 
         go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.name = "Side2Exterior";
+        go.layer = (int)PHYSICS_LAYERS.Camera_Edges;
         Destroy(go.GetComponent<BoxCollider>());
         go.GetComponent<Renderer>().material = material_exterior;
         go.transform.localScale = new Vector3(table_outer_length, table_inner_wall_height, (table_outer_width - table_inner_width) / 2.0f);
@@ -288,6 +303,25 @@ public class CreateRandomTable : MonoBehaviour {
         go.transform.transform.parent = table.transform;
 
 
+        // Goal camera render planes
+        go = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        go.name = "cam_goal1";
+        go.layer = (int)PHYSICS_LAYERS.Camera_Goals;
+        go.GetComponent<Renderer>().material = material_inside_wall;
+        go.transform.localScale = new Vector3( (table_inner_length-table_outer_length)/2.0f, 1, goal_width) / 10.0f;
+        go.transform.position = new Vector3( -table_inner_length / 2.0f - (table_outer_length - table_inner_length) / 4.0f, 5.0f, 0.0f);
+        go.transform.transform.parent = table.transform;
+        Destroy(go.GetComponent<Collider>());
+
+        go = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        go.name = "cam_goal2";
+        go.layer = (int)PHYSICS_LAYERS.Camera_Goals;
+        go.GetComponent<Renderer>().material = material_inside_wall;
+        go.transform.localScale = new Vector3((table_inner_length - table_outer_length) / 2.0f, 1, goal_width) / 10.0f;
+        go.transform.position = new Vector3(table_inner_length / 2.0f + (table_outer_length - table_inner_length) / 4.0f, 5.0f, 0.0f);
+        go.transform.transform.parent = table.transform;
+        Destroy(go.GetComponent<Collider>());
+
 
         // Build the goal detectors boxes
         // Note: We don't want to detect balls that hit the corner, so we start the detection box 1/2 ball width into the goal.
@@ -344,7 +378,7 @@ public class CreateRandomTable : MonoBehaviour {
         m = new Mesh();
         go.GetComponent<MeshCollider>().sharedMesh = m;
         go.GetComponent<MeshFilter>().mesh = m;
-        go.layer = (int)PHYSICS_LAYERS.Table;
+        go.layer = (int)PHYSICS_LAYERS.Camera_Edges;
         m.vertices = vertices.ToArray();
         m.triangles = triangles.ToArray();
         m.normals = normals.ToArray();
@@ -356,7 +390,7 @@ public class CreateRandomTable : MonoBehaviour {
         m = new Mesh();
         go.GetComponent<MeshCollider>().sharedMesh = m;
         go.GetComponent<MeshFilter>().mesh = m;
-        go.layer = (int)PHYSICS_LAYERS.Table;
+        go.layer = (int)PHYSICS_LAYERS.Camera_Edges;
         m.vertices = vertices.ToArray();
         m.triangles = triangles.ToArray();
         m.normals = normals.ToArray();
@@ -407,6 +441,7 @@ public class CreateRandomTable : MonoBehaviour {
         // Create the balls
         for (int i = 0; i < NumberOfBalls; i++)
         {
+            // Main ball
             go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             go.name = "Ball";
             go.tag = "Ball";
@@ -416,9 +451,11 @@ public class CreateRandomTable : MonoBehaviour {
             rb.maxAngularVelocity = 2f * 3.14f * 1000f;
             go.layer = (int)PHYSICS_LAYERS.Ball;
             go.GetComponent<Renderer>().material = material_ball;
+            go.GetComponent<Renderer>().material.color = Color.red;
             go.transform.localScale = new Vector3(ball_diameter, ball_diameter, ball_diameter);
             go.transform.position = new Vector3(0f, ball_diameter * 2.0f, 0f);
             go.transform.transform.parent = table.transform;
+            go.AddComponent<VelocityLine>();
             this.GetComponent<TableManager>().Balls.Add(go, new Ball(go, this.GetComponent<TableManager>()));
         }
 
@@ -435,23 +472,29 @@ public class CreateRandomTable : MonoBehaviour {
         // Place the two agent cameras
         if ( AddCameras )
         {
+            // Camera settings
+            var Camera1 = transform.Find("Agent1").Find("Camera");
+            var Camera2 = transform.Find("Agent2").Find("Camera");
+
             if (CameraAboveTable)
             {
-                if (this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras.Count > 0)
+                if (Camera1 != null)
                 {
                     // Position the camera looking down at the table at approximately the center
-                    go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
+                    go = Camera1.gameObject;
                     go.transform.position = new Vector3(0f, 0f, 0f) +
                                             new Vector3(0f, table_outer_length / 1.8f, 0f) +
                                             0.1f * Random.insideUnitSphere;
                     go.transform.transform.parent = table.transform;
                     go.transform.eulerAngles = new Vector3(90 + 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f), 5.0f * (Random.value - 0.5f));
                 }
+                
 
-                if (this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras.Count > 0)
+                if (Camera2 != null)
                 {
                     // Position second camera, but rotated
-                    go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
+                    Debug.Log("TESTE!");
+                    go = Camera2.gameObject;
                     go.transform.position = new Vector3(0f, 0f, 0f) +
                                             new Vector3(0f, table_outer_length / 1.8f, 0f) +
                                             0.1f * Random.insideUnitSphere;
@@ -461,26 +504,33 @@ public class CreateRandomTable : MonoBehaviour {
             }
             else
             {
-                go = this.GetComponent<TableManager>().PlayerAgents[0].agentParameters.agentCameras[0].gameObject;
-                go.AddComponent<Camera>();
-                go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                        new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                        table_outer_length * 0.1f * Random.insideUnitSphere;
-                go.transform.transform.parent = table.transform;
-                // Point the camera at approximately the center of the table
-                go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-                go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
+                if (Camera1 != null)
+                {
+                    go = Camera1.gameObject;
+                    go.AddComponent<Camera>();
+                    go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                            new Vector3(-table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                            table_outer_length * 0.1f * Random.insideUnitSphere;
+                    go.transform.transform.parent = table.transform;
 
-                go = this.GetComponent<TableManager>().PlayerAgents[1].agentParameters.agentCameras[0].gameObject;
-                go.AddComponent<Camera>();
-                go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
-                                        new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
-                                        table_outer_length * 0.1f * Random.insideUnitSphere;
-                go.transform.transform.parent = table.transform;
+                    // Point the camera at approximately the center of the table
+                    go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+                    go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 15.0f);
+                }
 
-                // Point the camera at approximately the center of the table
-                go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
-                go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
+                if (Camera2 != null)
+                {
+                    go = Camera2.gameObject;
+                    go.AddComponent<Camera>();
+                    go.transform.position = new Vector3(0f, table_outer_length / 2.0f, 0f) +
+                                            new Vector3(table_outer_length * 1.5f / 2.0f, 0f, 0f) +
+                                            table_outer_length * 0.1f * Random.insideUnitSphere;
+                    go.transform.transform.parent = table.transform;
+
+                    // Point the camera at approximately the center of the table
+                    go.transform.forward = -(go.transform.position - Vector3.zero + table_outer_length * 0.15f * Random.insideUnitSphere);
+                    go.transform.Rotate(go.transform.forward, (Random.value - 0.5f) * 10.0f);
+                }
             }
         }
 
@@ -540,7 +590,7 @@ public class CreateRandomTable : MonoBehaviour {
             // Add the rod bearings
             go = GameObject.CreatePrimitive(PrimitiveType.Cylinder); // note cylinder is 2.0 units in y direction by default
             go.name = "Rod" + i + " Bearing1";
-            go.layer = (int)PHYSICS_LAYERS.Table;
+            go.layer = (int)PHYSICS_LAYERS.Camera_Rods;
             go.GetComponent<Renderer>().material = material_bumper;
             go.transform.localScale = new Vector3(bumper_diameter*1.5f, rod_bearing_width/2.0f, bumper_diameter * 1.5f);
             go.transform.Rotate(new Vector3(1f, 0, 0), 90.0f);
@@ -549,7 +599,7 @@ public class CreateRandomTable : MonoBehaviour {
 
             go = GameObject.CreatePrimitive(PrimitiveType.Cylinder); // note cylinder is 2.0 units in y direction by default
             go.name = "Rod" + i + " Bearing2";
-            go.layer = (int)PHYSICS_LAYERS.Table ;
+            go.layer = (int)PHYSICS_LAYERS.Camera_Rods;
             go.GetComponent<Renderer>().material = material_bumper;
             go.transform.localScale = new Vector3(bumper_diameter * 1.5f, rod_bearing_width/2.0f, bumper_diameter * 1.5f);
             go.transform.Rotate(new Vector3(1f, 0, 0), 90.0f);
@@ -613,7 +663,7 @@ public class CreateRandomTable : MonoBehaviour {
             // Bumper cylinders
             go = GameObject.CreatePrimitive(PrimitiveType.Cylinder); // note cylinder is 2.0 units in y direction by default
             go.name = "Bumper1";
-            go.layer = (int)PHYSICS_LAYERS.Rods;
+            go.layer = (int)PHYSICS_LAYERS.Camera_Rods;
             go.GetComponent<Renderer>().material = material_bumper;
             go.transform.localScale = new Vector3(bumper_diameter, bumper_length / 2.0f, bumper_diameter);
             go.transform.Rotate(new Vector3(1f, 0, 0), 90.0f);
@@ -716,7 +766,8 @@ public class CreateRandomTable : MonoBehaviour {
                 cj.angularZMotion = ConfigurableJointMotion.Limited;
                 cj.angularZLimit = new SoftJointLimit
                 {
-                    limit = Random.Range(160f, 179f)
+                    //limit = Random.Range(160f, 179f)
+                    limit = Random.Range(90f, 90f)
                 };
             }
 
@@ -775,11 +826,32 @@ public class CreateRandomTable : MonoBehaviour {
         // Build the horizontal cylinder, this is the center of the player
         GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cylinder); // note cylinder is 2.0 units in y direction by default
         go.name = "BarCylinder";
-        go.layer = (int)PHYSICS_LAYERS.Rods;
+        go.layer = (int)PHYSICS_LAYERS.Camera_Players;
         go.GetComponent<Renderer>().material = material;
         go.transform.localScale = new Vector3(bumper_diameter, player_width / 2.0f, bumper_diameter);
         go.transform.Rotate(new Vector3(1f, 0, 0), 90.0f);
         go.transform.transform.parent = player.transform;
+        go.AddComponent<VelocityLine>().Color = Color.red;
+        go.GetComponent<VelocityLine>().VelocityAxes = new Vector3(0.0f, 0.0f, 1.0f);
+        go.GetComponent<VelocityLine>().VelocityLogBase = 4.0f;
+        go.GetComponent<VelocityLine>().VelocityLengthFactor = 2.0f;
+
+
+        // Tip of the player marker for the camera
+        go = new GameObject("PlayerTip");
+        go.layer = (int)PHYSICS_LAYERS.Camera_Players;
+        go.transform.position = new Vector3(0f, -player_rod_to_toes, 0f); // Don't shift it all the way down;
+        go.transform.transform.parent = player.transform;
+        go.AddComponent<VelocityLine>().Color = Color.black;
+        go.GetComponent<VelocityLine>().VelocityAxes = new Vector3(1.0f, 0.0f, 0.0f);
+        go.GetComponent<VelocityLine>().VelocityLogBase = 4.0f;
+        go.GetComponent<VelocityLine>().VelocityLengthFactor = 4.0f;
+
+        go.AddComponent<RenderLine>().Color = Color.black;
+        go.GetComponent<RenderLine>().StartOffset = new Vector3(0.0f, 0.0f, -player_width/2);
+        go.GetComponent<RenderLine>().EndOffset = new Vector3(0.0f, 0.0f, player_width / 2);
+        go.GetComponent<RenderLine>().Width = 0.1f;
+
 
         // Build the head cylinder
         go = GameObject.CreatePrimitive(PrimitiveType.Cylinder); // note cylinder is 2.0 units in y direction by default
@@ -849,6 +921,7 @@ public class CreateRandomTable : MonoBehaviour {
         m.normals = normals.ToArray();
         go.GetComponent<Renderer>().material = material;
         go.transform.transform.parent = player.transform;
+
 
         return player;
     }

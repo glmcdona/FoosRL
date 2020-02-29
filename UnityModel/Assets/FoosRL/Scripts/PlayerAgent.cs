@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using System.Linq;
 
 public class PlayerAgent : Agent
 {
     public int player = -1;
 
-    public int DiscreteActionLevels = 1;
+    public int DiscreteActionLevels = 3;
+    public float TimeBetweenDecisionsAtInference = 0.01f;
+    private float m_TimeSinceDecision = 0.0f;
+    public Camera RenderCamera;
 
     public bool ControlledByKeys = false;
     public bool VisionOnly = false;
     public bool EndGameOnMaxGoals = true;
     public bool ApplyForceVerticalRods = true;
     public bool AgentControlPosition = true;
+
+    //private float PlayerContactReward = 0.0f;
+    private Vector3 BallLastDirection = new Vector3(0.0f,0.0f,0.0f);
+
 
     // Rods order:
     //   0: Goalie
@@ -28,6 +36,8 @@ public class PlayerAgent : Agent
     public float total_reward = 0.0f;
     public int max_goals = 10;
     public int goals = 0;
+    public int SelectedRod = 0;
+    public int LastSelectedRod = 0;
 
     public ForceMode mode = ForceMode.Force;
 
@@ -35,43 +45,26 @@ public class PlayerAgent : Agent
     private PlayerAgent opponent = null;
     private GameObject goal = null;
     private Bounds play_area;  // x: table_inner_length, y: table_inner_wall_height, z: table_inner_width
+    private Vector3 direction_of_play;
 
     // Use this for initialization
     void Start () {
         // Load the table manager
-        tm = GetComponent<TableManager>();
+        tm = transform.parent.GetComponent<TableManager>();
         opponent = tm.PlayerAgents[Mathf.Abs(player - 1)];
         goal = tm.Goals[player];
         play_area = tm.PlayArea;
+        if (player == 0)
+            direction_of_play = new Vector3(1.0f, 0.0f, 0.0f);
+        else
+            direction_of_play = new Vector3(-1.0f, 0.0f, 0.0f);
     }
-
+    
+    
     public void SetCamera(Camera camera)
     {
         // Load this camera to this agent
-        this.agentParameters.agentCameras.Clear();
-        this.agentParameters.agentCameras.Add(camera);
-    }
-
-    // Update is called once per frame
-    void Update () {
-        // Update rods
-        if (ControlledByKeys)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                foreach (GameObject rod in rods)
-                {
-                    rod.GetComponent<Rigidbody>().AddTorque(new Vector3(0.0f, 0.0f, torque_factor), mode);
-                }
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                foreach (GameObject rod in rods)
-                {
-                    rod.GetComponent<Rigidbody>().AddTorque(new Vector3(0.0f, 0.0f, -torque_factor), mode);
-                }
-            }
-        }
+        this.RenderCamera = camera;
     }
 
     public override void InitializeAgent()
@@ -79,10 +72,41 @@ public class PlayerAgent : Agent
         // Nothing.
     }
 
-    public override void CollectObservations()
+    public void FixedUpdate()
     {
-        if (VisionOnly)
+        WaitTimeInference();
+    }
+
+    void WaitTimeInference()
+    {
+        //if (RenderCamera != null)
+        //{
+        //    RenderCamera.Render();
+        //}
+
+        if (Academy.Instance.IsCommunicatorOn)
         {
+            RequestDecision();
+        }
+        else
+        {
+            if (m_TimeSinceDecision >= TimeBetweenDecisionsAtInference)
+            {
+                m_TimeSinceDecision = 0f;
+                RequestDecision();
+            }
+            else
+            {
+                m_TimeSinceDecision += Time.fixedDeltaTime;
+            }
+        }
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        //if (VisionOnly)
+        //{
+            /*
             // No observations, just the camera as input
 
             // Basic feature set (32+6=38 floats)
@@ -131,7 +155,44 @@ public class PlayerAgent : Agent
                 AddVectorObs(NormalizeAngle(angle));
                 AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
             }
-        }
+
+            // Nearest ball position with respect to each current player physical rod players
+            foreach (GameObject player in players)
+            {
+                Vector2 RelPosition2d_min = Vector2.positiveInfinity;
+
+                foreach (GameObject ball in tm.Balls.Keys)
+                {
+                    Vector3 RelPosition = ball.transform.position - player.transform.position;
+                    Vector2 RelPosition2d = new Vector2(
+                            RelPosition.x / play_area.size.x,
+                            RelPosition.z / play_area.size.z
+                        );
+
+                    if (RelPosition2d.magnitude < RelPosition2d_min.magnitude)
+                        RelPosition2d_min = RelPosition2d;
+                }
+
+                // Add the player position to ball location vector
+                AddVectorObs(NormalizeLogistic(RelPosition2d_min * 10.0f)); // 10x resolution scaling so it gets detailed when the ball is close to each player on each axis
+            }
+            */
+        //}
+        //else
+        //{
+            // Features:
+            //  2d map of where the ball(s) are
+            //  2d map of where your player are
+            //  2d map of where opponent players are
+            //  float[8] position of each rod
+            //  float[8] angular velocity of each rod
+            //  float[8] velocity of each rod
+
+            // To form the 2d maps, this outputs an array of Vector2 for each object. The python code is expected to build this into the map.
+            // Build the 2d map of where the ball is
+
+        //}
+        /*
         else
         {
             // Add both player rod positions, angles, speeds, and ball position as features
@@ -205,115 +266,97 @@ public class PlayerAgent : Agent
             // Total:
             // 3*3 + 4 * 4 + 4 * 4 = 41 float observations
         }
+        */
     }
 
-    /*
-    public override void CollectObservations()
+
+    // Random heuristic
+    private float timeInState = 10.0f;
+    private float[] state = new float[8] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, };
+    public override float[] Heuristic()
     {
-        if (VisionOnly)
+        // Random actions
+        // 0-3: Linear rods 0 to 3
+        // 4-7: Torque rods 0 to 3
+        timeInState += Time.deltaTime;
+        if (timeInState > 0.3)
         {
-            // No observations, just the camera as input
+            state = new float[8] {
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f,
+                (Random.value - 0.5f) * 2.0f
+            };
+            timeInState = 0.0f;
         }
-        else
-        {
-            // Add both player rod positions, angles, speeds, and ball position as features
-
-            // Ball coordinates
-            AddVectorObs( NormalizePositionToPlayArea(tm.ball.transform.position) );
-            //Debug.Log(NormalizePositionToPlayArea(tm.ball.transform.position));
-
-            // Ball velocity
-            AddVectorObs( NormalizeVelocity(tm.ball.GetComponent<Rigidbody>().velocity * 10.0f ) );
-            //Debug.Log( NormalizeVelocity(tm.ball.GetComponent<Rigidbody>().velocity * 10.0f));
-
-            // Current player rods
-            //  x -> direction of play
-            //  y -> vertical
-            //  z -> direction of rods
-            foreach (GameObject rod in rods)
-            {
-                // Position
-                AddVectorObs( NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f );
-                //if( player == 0 && rod == rods[0])
-                //    Debug.Log(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position));
-                AddVectorObs( NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f );
-
-
-                // Rod Angle
-                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
-                AddVectorObs( NormalizeAngle(angle) );
-                //if (player == 0 && rod == rods[0])
-                //    Debug.Log( NormalizeAngle(angle) );
-                
-                AddVectorObs( NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f ).z );
-                //if (player == 0 && rod == rods[0])
-                //    Debug.Log(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
-            }
-
-            // Opponent player rods
-            foreach (GameObject rod in opponent.rods)
-            {
-                // Position
-                AddVectorObs(NormalizePositionToPlayArea(rod.GetComponent<Rigidbody>().transform.position).z * 3.0f );
-                AddVectorObs(NormalizeVelocity(rod.GetComponent<Rigidbody>().velocity).z * 5.0f );
-
-                // Rod Angle
-                float angle = Vector3.SignedAngle(rod.transform.up, new Vector3(0.0f, 1.0f, 0.0f), rod.transform.forward);
-                AddVectorObs(NormalizeAngle(angle));
-                AddVectorObs(NormalizeAngularVelocity(rod.GetComponent<Rigidbody>().angularVelocity, 5.0f).z);
-            }
-
-            // Ball position with respect to each current player physical rod players
-            foreach (GameObject player in players)
-            {
-                Vector3 RelPosition = tm.ball.transform.position - player.transform.position;
-                Vector2 RelPosition2d = new Vector2(
-                        RelPosition.x / play_area.size.x,
-                        RelPosition.z / play_area.size.z
-                    );
-
-                // Add the player position to ball location vector
-                AddVectorObs( NormalizeLogistic(RelPosition2d * 10.0f ) ); // 10x resolution scaling so it gets detailed when the ball is close to each player on each axis
-            }
-
-            // Total:
-            // 3*3 + 4 * 4 + 4 * 4 = 41 float observations
-        }
+        return state;
     }
-    */
 
-    public override void AgentAction(float[] vectorAction, string textAction)
+    public override void AgentAction(float[] vectorAction)
     {
         // Take the actions. Action format is continuous:
         // 0-3: Linear rods 0 to 3
         // 4-7: Torque rods 0 to 3
-        if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
+        for (int rod = 0; rod < 4; rod++)
         {
-            for (int rod = 0; rod < 4; rod++)
-            {
-                // Apply the agent action forces for this rod
-                var linear = force_factor * Mathf.Clamp(vectorAction[rod], -1f, 1f);
-                var torque = torque_factor * Mathf.Clamp(vectorAction[rod + 4], -1f, 1f);
+            // Apply the agent action forces for this rod
+            var linear = force_factor * Mathf.Clamp(vectorAction[rod], -1f, 1f);
+            var torque = torque_factor * Mathf.Clamp(vectorAction[rod + 4], -1f, 1f);
 
-                rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
-                rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
-            }
+            rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
+            rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
         }
-        else
+
+        //// 0-3: Linear rods 0 to 3
+        ////      0: push hardest. 1 push moderate, 2 push slowly, 3 nothing, 4 push slowly, 5 push moderate, 6, push hard
+        //// 4-7: Torque rods 0 to 3
+        ////      0: nothing. 1 cw, DiscreteActionLevels+1 ccw
+        //for (int rod = 0; rod < 4; rod++)
+        //{
+        //    // Apply the agent action forces for this rod
+        //    var linear = force_factor * (float)(vectorAction[rod] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
+        //    var torque = force_factor * (float)(vectorAction[rod + 4] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
+        //    rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
+        //    rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
+        //}
+
+        // Second attempt at descrete control. Can only control one rod at a time!
+        // Rod selection + discrete movement controls
+
+        /*
+        // Apply the agent action forces for this rod
+        var selected_rod = Mathf.FloorToInt((Mathf.Clamp(vectorAction[0], -1, 1)/2.0f + 0.5f)*4.0f); // 0 to 3 to select which rod to control
+        if (selected_rod > 3)
+            selected_rod = 3;
+        if (selected_rod < 0)
+            selected_rod = 0;
+        //var linear = force_factor * (float)(vectorAction[1] - (this.DiscreteActionLevels*2.0f-1f)/2.0f) / (float)(this.DiscreteActionLevels * 2.0f - 1f) / 2.0f;
+        //var torque = force_factor * (float)(vectorAction[2] - (this.DiscreteActionLevels * 2.0f - 1f) / 2.0f) / (float)(this.DiscreteActionLevels * 2.0f - 1f) / 2.0f;
+        var linear = force_factor * Mathf.Clamp(vectorAction[1], -1f, 1f);
+        var torque = torque_factor * Mathf.Clamp(vectorAction[2], -1f, 1f);
+        rods[selected_rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
+        rods[selected_rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
+        
+        if (selected_rod != LastSelectedRod)
         {
-            // 0-3: Linear rods 0 to 3
-            //      0: push hardest. 1 push moderate, 2 push slowly, 3 nothing, 4 push slowly, 5 push moderate, 6, push hard
-            // 4-7: Torque rods 0 to 3
-            //      0: nothing. 1 cw, DiscreteActionLevels+1 ccw
-            for (int rod = 0; rod < 4; rod++)
-            {
-                // Apply the agent action forces for this rod
-                var linear = force_factor * (float)(vectorAction[rod] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
-                var torque = force_factor * (float)(vectorAction[rod + 4] - (this.DiscreteActionLevels)) / (float)this.DiscreteActionLevels;
-                rods[rod].GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0.0f, 0.0f, torque), mode);
-                rods[rod].GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, linear), mode);
-            }
+            // Highlight the newly selected rod
+            rods[selected_rod].transform.Find("Rod").GetComponent<Renderer>().material = tm.MaterialRodSelected;
+            rods[selected_rod].transform.Find("Rod").GetComponent<Renderer>().material.color = Color.blue;
+
+            // Unhiglight the old rod
+            rods[LastSelectedRod].transform.Find("Rod").GetComponent<Renderer>().material = tm.MaterialRodNormal;
+            rods[LastSelectedRod].transform.Find("Rod").GetComponent<Renderer>().material.color = Color.grey;
+
+            // Apply a penalty for a rod switch
+            //AddReward(-1f / 20000.0f * 20.0f); // 20x the timestep penalty
+            //total_reward += -1f / 20000.0f * 20.0f;
         }
+        LastSelectedRod = SelectedRod;
+        SelectedRod = selected_rod;
 
         if (this.ApplyForceVerticalRods)
         {
@@ -327,61 +370,18 @@ public class PlayerAgent : Agent
                     , mode);
             }
         }
-
-        // Calculate the ball position reward
-
-        // Give a reward depending on who has the ball
-        /*
-        float[] rewards = new float[]
-        {
-            0.10f, // At goalie (10% from here)
-            0.10f, // At defence (10% from here)
-            0.25f, // At 5-bar (25% from here)
-            0.40f, // At 3-bar offense (40% chance of scoring from here)
-        };
         */
-
-        /*
-        // Simpler reward structure, send ball towards opponents net!
-        float[] rewards = new float[]
-        {
-            -0.10f, // At goalie (10% from here)
-            -0.10f, // At defence (10% from here)
-            0.00f, // At 5-bar (25% from here)
-            0.10f, // At 3-bar offense (40% chance of scoring from here)
-        };
-        */
-
-        //float reward = (LastPlayerWithBall == 0 ? 1.0f : -1.0f) * rewards[LastRodWithBall];
-        //_player_rewards_currentball[0] = reward;
-        //_player_rewards_currentball[1] = -reward;
-
-        // Even simpler reward! Reward is distance to goal.
-        /*
-        float proximal_reward = 0.3f;
-        float denominator = 2.0f * Vector3.Distance(tm.BallDropSource.transform.position, opponent.goal.transform.position);
-        float distance_goal_opponent = Vector3.Distance(tm.ball.transform.position, opponent.goal.transform.position);
-        float distance_goal_mine = Vector3.Distance(tm.ball.transform.position, goal.transform.position);
-        float distance_goal_reward = proximal_reward - proximal_reward * distance_goal_opponent / denominator
-                        - (proximal_reward - proximal_reward * distance_goal_mine / denominator);
-
-        // Add the reward delta
-        //AddReward(distance_goal_reward - last_distance_goal_reward);
-        //total_reward += distance_goal_reward - last_distance_goal_reward;
-
-        // Update last ball position reward
-        last_distance_goal_reward = distance_goal_reward;*/
 
         // Tiny penalty for time passing
-        AddReward(-0.5f / 10000.0f);
-        total_reward += -0.5f / 10000.0f;
+        AddReward((-1f / 20000.0f) / 5.0f);
+        total_reward += (-1f / 20000.0f) / 5.0f;
     }
 
     public void Goal()
     {
         // 1.0 for scoring
-        AddReward(1.0f);
-        total_reward += 1.0f;
+        AddReward(0.2f);
+        total_reward += 0.2f;
         last_distance_goal_reward = 0.0f;
         goals++;
         if (goals >= max_goals && EndGameOnMaxGoals)
@@ -394,8 +394,8 @@ public class PlayerAgent : Agent
     public void GoalAgainst()
     {
         // -1.0 for being scored against
-        AddReward(-1.0f);
-        total_reward += -1.0f;
+        AddReward(-0.2f);
+        total_reward += -0.2f;
         last_distance_goal_reward = 0.0f;
         goals++;
         if (goals >= max_goals && EndGameOnMaxGoals)
@@ -521,7 +521,8 @@ public class PlayerAgent : Agent
     public override void AgentReset()
     {
         goals = 0;
-        GetComponent<TableManager>().ResetGame();
+        transform.parent.GetComponent<TableManager>().ResetGame();
+        BallLastDirection = Vector3.zero;
     }
 
 

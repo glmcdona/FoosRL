@@ -43,6 +43,22 @@ public class Ball
 
     }
 
+    public bool RodHasBall(int player, int rod_index)
+    {
+        if (player == LastPlayerWithBall && LastRodWithBall == rod_index)
+            return true;
+
+        return false;
+    }
+
+    public int? GetRodWithMe(int player)
+    {
+        if ( player == LastPlayerWithBall )
+            return (int?) LastRodWithBall;
+
+        return null;
+    }
+
     public void BallStuck()
     {
         if (LastPlayerWithBall == -1)
@@ -69,8 +85,6 @@ public class Ball
         // Ask the table to reset the ball
         _tm.ResetBall(BallGameObject, give_to_player);
     }
-
-    
 }
 
 
@@ -84,6 +98,9 @@ public class TableManager : MonoBehaviour {
 
     public GameObject[] Goals = new GameObject[] {null, null};
     public PlayerAgent[] PlayerAgents = new PlayerAgent[] { null, null };
+
+    public Material MaterialRodNormal;
+    public Material MaterialRodSelected;
 
     public int LastPlayerWithBall = -1;
     public int LastRodWithBall = -1;
@@ -182,15 +199,50 @@ public class TableManager : MonoBehaviour {
         Balls[ball].ResetBall(Mathf.Abs(player - 1));
     }
 
-    // Callback for tracking which rods have the ball
-    public void BallEnterRod(GameObject ball, int player, int rod_index)
+
+
+    /*
+    // Callback for tracking a player colliding with a ball
+    public void BallCollidePlayer(GameObject ball, int player, int rod_index)
     {
-        Balls[ball].BallEnterRod(player, rod_index);
+        PlayerAgents[Mathf.Abs(player)].PlayerContactedBall();
+    }
+    */
+
+    public List<Ball> RodGetBalls(int player, int rod_index)
+    {
+        // Get a list of balls that the rod has control of
+        List<Ball> result = new List<Ball>(1);
+        foreach( Ball ball in this.Balls.Values )
+        {
+            if (ball.RodHasBall(player, rod_index))
+                result.Add(ball);
+        }
+        return result;
     }
 
+    public List<int> GetRodsWithBall(int player)
+    {
+        // Get a list of all rods from the player with the ball
+        List<int> result = new List<int>(1);
+        foreach (Ball ball in this.Balls.Values)
+        {
+            int? rod = ball.GetRodWithMe(player);
+            if (rod != null)
+                result.Add((int) rod);
+        }
+        return result;
+    }
+
+    // Callback for tracking which rods have the ball
     public void BallExitRod(GameObject ball, int player, int rod_index)
     {
         Balls[ball].BallExitRod(player, rod_index);
+    }
+    
+    public void BallEnterRod(GameObject ball, int player, int rod_index)
+    {
+        Balls[ball].BallEnterRod(player, rod_index);
     }
 
     // Ball exit play area
